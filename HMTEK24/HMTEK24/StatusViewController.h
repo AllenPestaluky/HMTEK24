@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PlayerStatus;
 
-@interface StatusViewController : UIViewController
+@interface StatusViewController : UIViewController {
+  IBOutlet UIImageView *zombieBackImage;
+  IBOutlet UIImageView *aliveBackImage;
+}
+- (void)applicationDidBecomeActive;
+- (void)refreshStatusView: (PlayerStatus*) status;
 
 @end

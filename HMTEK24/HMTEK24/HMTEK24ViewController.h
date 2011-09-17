@@ -17,4 +17,6 @@
 
 - (IBAction)onTestButtonPress:(id)sender;
 
+- (void)applicationDidBecomeActive;
+
 @end

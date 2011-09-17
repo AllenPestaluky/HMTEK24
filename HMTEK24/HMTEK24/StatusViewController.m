@@ -7,6 +7,7 @@
 //
 
 #import "StatusViewController.h"
+#import "PlayerStatus.h"
 
 
 @interface StatusViewController()
@@ -37,14 +38,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+  // Do any additional setup after loading the view from its nib.
+  PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
+  status.isZombie = (rand() % 2 == 0) ? YES : NO;
+  [self refreshStatusView:status];
 }
 
 - (void)viewDidUnload
 {
+  [aliveBackImage release];
+  aliveBackImage = nil;
+  [zombieBackImage release];
+  zombieBackImage = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)applicationDidBecomeActive {
+  PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
+  status.isZombie = (rand() % 2 == 0) ? YES : NO;
+  [self refreshStatusView:status];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -53,4 +67,23 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)refreshStatusView: (PlayerStatus*) status {
+  // First hide everything:
+  zombieBackImage.hidden = YES;
+  aliveBackImage.hidden = YES;
+  
+  if(status.isZombie) {
+    zombieBackImage.hidden = NO;
+    
+  } else {
+    aliveBackImage.hidden = NO;
+    
+  }
+}
+
+- (void)dealloc {
+  [aliveBackImage release];
+  [zombieBackImage release];
+  [super dealloc];
+}
 @end
