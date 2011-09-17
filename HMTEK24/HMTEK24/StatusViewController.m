@@ -8,7 +8,7 @@
 
 #import "StatusViewController.h"
 #import "PlayerStatus.h"
-
+#import "FontLabel.h"
 
 @implementation StatusViewController
 
@@ -35,6 +35,16 @@
 {
     [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
+  
+  FontLabel *label = [[FontLabel alloc] initWithFrame:CGRectMake(10, 10, 0, 0) fontName:@"PRISTINA" pointSize:40.0f];
+	label.textColor = [UIColor magentaColor];
+	label.text = @"lorem ipsum";
+	[label sizeToFit];
+	label.backgroundColor = nil;
+	label.opaque = NO;
+	[self.view addSubview:label];
+	[label release];
+  
   PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
   status.isZombie = (rand() % 2 == 0) ? YES : NO;
   [self refreshStatusView:status];

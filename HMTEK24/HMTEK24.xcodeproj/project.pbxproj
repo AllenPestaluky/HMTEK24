@@ -52,6 +52,12 @@
 		D6E3697A1425586700C1D7D1 /* Layer_4_Zombie.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E369741425586700C1D7D1 /* Layer_4_Zombie.png */; };
 		D6E3697B1425586700C1D7D1 /* UI_Human.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E369751425586700C1D7D1 /* UI_Human.png */; };
 		D6E3697C1425586700C1D7D1 /* UI_Zombie.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E369761425586700C1D7D1 /* UI_Zombie.png */; };
+		D6E3698314255E9A00C1D7D1 /* PRISTINA.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D6E3698214255E9900C1D7D1 /* PRISTINA.TTF */; };
+		D6E369931425619A00C1D7D1 /* FontLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E369891425619A00C1D7D1 /* FontLabel.m */; };
+		D6E369941425619A00C1D7D1 /* FontLabelStringDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E3698B1425619A00C1D7D1 /* FontLabelStringDrawing.m */; };
+		D6E369951425619A00C1D7D1 /* FontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E3698D1425619A00C1D7D1 /* FontManager.m */; };
+		D6E369961425619A00C1D7D1 /* ZAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E3698F1425619A00C1D7D1 /* ZAttributedString.m */; };
+		D6E369971425619A00C1D7D1 /* ZFont.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E369921425619A00C1D7D1 /* ZFont.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +142,18 @@
 		D6E369741425586700C1D7D1 /* Layer_4_Zombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Layer_4_Zombie.png; sourceTree = "<group>"; };
 		D6E369751425586700C1D7D1 /* UI_Human.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_Human.png; sourceTree = "<group>"; };
 		D6E369761425586700C1D7D1 /* UI_Zombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_Zombie.png; sourceTree = "<group>"; };
+		D6E3698214255E9900C1D7D1 /* PRISTINA.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = PRISTINA.TTF; sourceTree = "<group>"; };
+		D6E369881425619A00C1D7D1 /* FontLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontLabel.h; sourceTree = "<group>"; };
+		D6E369891425619A00C1D7D1 /* FontLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontLabel.m; sourceTree = "<group>"; };
+		D6E3698A1425619A00C1D7D1 /* FontLabelStringDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontLabelStringDrawing.h; sourceTree = "<group>"; };
+		D6E3698B1425619A00C1D7D1 /* FontLabelStringDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontLabelStringDrawing.m; sourceTree = "<group>"; };
+		D6E3698C1425619A00C1D7D1 /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
+		D6E3698D1425619A00C1D7D1 /* FontManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontManager.m; sourceTree = "<group>"; };
+		D6E3698E1425619A00C1D7D1 /* ZAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZAttributedString.h; sourceTree = "<group>"; };
+		D6E3698F1425619A00C1D7D1 /* ZAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZAttributedString.m; sourceTree = "<group>"; };
+		D6E369901425619A00C1D7D1 /* ZAttributedStringPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZAttributedStringPrivate.h; sourceTree = "<group>"; };
+		D6E369911425619A00C1D7D1 /* ZFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFont.h; sourceTree = "<group>"; };
+		D6E369921425619A00C1D7D1 /* ZFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFont.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +336,7 @@
 		D6A409AF1425198900F05553 /* HMTEK24 */ = {
 			isa = PBXGroup;
 			children = (
+				D6E369871425619A00C1D7D1 /* FontLabel */,
 				D6E369701425586700C1D7D1 /* Resources */,
 				5CF3C121142556AF0009FE9F /* FoursquareConfig.plist */,
 				5CF3C122142556AF0009FE9F /* PlayerStatus.h */,
@@ -350,6 +369,7 @@
 		D6E369701425586700C1D7D1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D6E3698214255E9900C1D7D1 /* PRISTINA.TTF */,
 				D6E369711425586700C1D7D1 /* Layer_1_Normal.png */,
 				D6E369721425586700C1D7D1 /* Layer_2.png */,
 				D6E369731425586700C1D7D1 /* Layer_3.png */,
@@ -358,6 +378,24 @@
 				D6E369761425586700C1D7D1 /* UI_Zombie.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		D6E369871425619A00C1D7D1 /* FontLabel */ = {
+			isa = PBXGroup;
+			children = (
+				D6E369881425619A00C1D7D1 /* FontLabel.h */,
+				D6E369891425619A00C1D7D1 /* FontLabel.m */,
+				D6E3698A1425619A00C1D7D1 /* FontLabelStringDrawing.h */,
+				D6E3698B1425619A00C1D7D1 /* FontLabelStringDrawing.m */,
+				D6E3698C1425619A00C1D7D1 /* FontManager.h */,
+				D6E3698D1425619A00C1D7D1 /* FontManager.m */,
+				D6E3698E1425619A00C1D7D1 /* ZAttributedString.h */,
+				D6E3698F1425619A00C1D7D1 /* ZAttributedString.m */,
+				D6E369901425619A00C1D7D1 /* ZAttributedStringPrivate.h */,
+				D6E369911425619A00C1D7D1 /* ZFont.h */,
+				D6E369921425619A00C1D7D1 /* ZFont.m */,
+			);
+			path = FontLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +460,7 @@
 				D6E3697A1425586700C1D7D1 /* Layer_4_Zombie.png in Resources */,
 				D6E3697B1425586700C1D7D1 /* UI_Human.png in Resources */,
 				D6E3697C1425586700C1D7D1 /* UI_Zombie.png in Resources */,
+				D6E3698314255E9A00C1D7D1 /* PRISTINA.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +500,11 @@
 				5CF3C11C142556250009FE9F /* SBJsonWriter.m in Sources */,
 				5CF3C11D142556250009FE9F /* PhotoFormatter.m in Sources */,
 				5CF3C125142556AF0009FE9F /* PlayerStatus.m in Sources */,
+				D6E369931425619A00C1D7D1 /* FontLabel.m in Sources */,
+				D6E369941425619A00C1D7D1 /* FontLabelStringDrawing.m in Sources */,
+				D6E369951425619A00C1D7D1 /* FontManager.m in Sources */,
+				D6E369961425619A00C1D7D1 /* ZAttributedString.m in Sources */,
+				D6E369971425619A00C1D7D1 /* ZFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
