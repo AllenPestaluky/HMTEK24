@@ -7,9 +7,11 @@
 //
 
 #import "HMTEK24ViewController.h"
+#import "FoursquareWebLogin.h"
 
 @interface HMTEK24ViewController()
 - (void) onFoursquareAuthenticationComplete;
+- (void) doFoursquareAuthentication;
 @end
 
 @implementation HMTEK24ViewController
@@ -38,6 +40,24 @@
     [super viewDidLoad];
   if(statusViewController == nil) {
     statusViewController = [[StatusViewController alloc] initWithNibName:nil bundle:nil];
+  }
+  [Foursquare2 checkConstants];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+  [self doFoursquareAuthentication];
+}
+
+- (void) doFoursquareAuthentication {
+  if ([Foursquare2 isNeedToAuthorize]) {
+    [FoursquareWebLogin authorizeWithViewController:self 
+                                           Callback:^(BOOL success,id result){
+                                             if (success) {
+                                               [self onFoursquareAuthenticationComplete];
+                                             }
+                                           }];
+  } else {
+    [self onFoursquareAuthenticationComplete];
   }
 }
 

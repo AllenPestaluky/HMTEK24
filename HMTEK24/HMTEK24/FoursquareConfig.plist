@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>FOURSQUARE_HASH_TAG</key>
+	<string>#4ZQ</string>
+	<key>FOURSQUARE_GAME_URL</key>
+	<string>http://magmic.com/</string>
+	<key>FOURSQUARE_OAUTH_KEY</key>
+	<string>DCS5HIDN2GOI31AX21M34PYIXBIKHJ2GGSXHHNNVG4VJ23TR</string>
+	<key>FOURSQUARE_OAUTH_SECRET</key>
+	<string>GGKH3BTLEFGMQYPIKCAZNFPQPKCCWGWQEC4GKOHGN4FJVNSH</string>
+	<key>FOURSQUARE_REDIRECT_URL</key>
+	<string>http://facetious.ca/</string>
+</dict>
 </plist>

@@ -8,6 +8,11 @@
 
 #import "StatusViewController.h"
 
+
+@interface StatusViewController()
+- (void) calculateTimeToLive;
+@end
+
 @implementation StatusViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
