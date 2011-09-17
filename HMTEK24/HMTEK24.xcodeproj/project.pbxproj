@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D61C88A61425447500EA73D6 /* PlayerStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = D61C88A51425447500EA73D6 /* PlayerStatus.m */; };
+		D61C88AB1425465000EA73D6 /* UI_Human.png in Resources */ = {isa = PBXBuildFile; fileRef = D61C88A91425465000EA73D6 /* UI_Human.png */; };
+		D61C88AC1425465000EA73D6 /* UI_Zombie.png in Resources */ = {isa = PBXBuildFile; fileRef = D61C88AA1425465000EA73D6 /* UI_Zombie.png */; };
 		D621A3C1142531D0002B9294 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D621A3BF142531D0002B9294 /* StatusViewController.m */; };
 		D621A3C2142531D0002B9294 /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D621A3C0142531D0002B9294 /* StatusViewController.xib */; };
 		D6A409AA1425198900F05553 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A409A91425198900F05553 /* UIKit.framework */; };
@@ -21,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D61C88A41425447500EA73D6 /* PlayerStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerStatus.h; sourceTree = "<group>"; };
+		D61C88A51425447500EA73D6 /* PlayerStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerStatus.m; sourceTree = "<group>"; };
+		D61C88A91425465000EA73D6 /* UI_Human.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_Human.png; sourceTree = "<group>"; };
+		D61C88AA1425465000EA73D6 /* UI_Zombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_Zombie.png; sourceTree = "<group>"; };
 		D621A3BE142531D0002B9294 /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusViewController.h; sourceTree = "<group>"; };
 		D621A3BF142531D0002B9294 /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
 		D621A3C0142531D0002B9294 /* StatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusViewController.xib; sourceTree = "<group>"; };
@@ -54,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D61C88A81425465000EA73D6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D61C88A91425465000EA73D6 /* UI_Human.png */,
+				D61C88AA1425465000EA73D6 /* UI_Zombie.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		D6A4099A1425198900F05553 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +100,7 @@
 		D6A409AF1425198900F05553 /* HMTEK24 */ = {
 			isa = PBXGroup;
 			children = (
+				D61C88A81425465000EA73D6 /* Resources */,
 				D6A409B81425198900F05553 /* HMTEK24AppDelegate.h */,
 				D6A409B91425198900F05553 /* HMTEK24AppDelegate.m */,
 				D6A409BB1425198900F05553 /* MainWindow.xib */,
@@ -94,6 +111,8 @@
 				D621A3BE142531D0002B9294 /* StatusViewController.h */,
 				D621A3BF142531D0002B9294 /* StatusViewController.m */,
 				D621A3C0142531D0002B9294 /* StatusViewController.xib */,
+				D61C88A41425447500EA73D6 /* PlayerStatus.h */,
+				D61C88A51425447500EA73D6 /* PlayerStatus.m */,
 			);
 			path = HMTEK24;
 			sourceTree = "<group>";
@@ -163,6 +182,8 @@
 				D6A409BD1425198900F05553 /* MainWindow.xib in Resources */,
 				D6A409C31425198900F05553 /* HMTEK24ViewController.xib in Resources */,
 				D621A3C2142531D0002B9294 /* StatusViewController.xib in Resources */,
+				D61C88AB1425465000EA73D6 /* UI_Human.png in Resources */,
+				D61C88AC1425465000EA73D6 /* UI_Zombie.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +198,7 @@
 				D6A409BA1425198900F05553 /* HMTEK24AppDelegate.m in Sources */,
 				D6A409C01425198900F05553 /* HMTEK24ViewController.m in Sources */,
 				D621A3C1142531D0002B9294 /* StatusViewController.m in Sources */,
+				D61C88A61425447500EA73D6 /* PlayerStatus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

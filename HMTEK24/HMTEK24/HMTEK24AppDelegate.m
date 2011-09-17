@@ -49,9 +49,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-  /*
-   Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-   */
+  // who cares about the warning, I know it works:
+  [self.viewController applicationDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

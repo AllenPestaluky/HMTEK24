@@ -59,6 +59,10 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)applicationDidBecomeActive {
+  [statusViewController applicationDidBecomeActive];
+}
+
 - (IBAction)onTestButtonPress:(id)sender {
   [self onFoursquareAuthenticationComplete];
   
