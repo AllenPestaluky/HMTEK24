@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StatusViewController.h"
 
-@interface HMTEK24ViewController : UIViewController
+@interface HMTEK24ViewController : UIViewController {
+  StatusViewController* statusViewController;
+}
+
+@property (nonatomic, retain) StatusViewController* statusViewController;
+
+- (IBAction)onTestButtonPress:(id)sender;
 
 @end

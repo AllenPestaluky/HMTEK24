@@ -1,20 +1,23 @@
 //
-//  HMTEK24ViewController.m
+//  StatusViewController.m
 //  HMTEK24
 //
 //  Created by Allen Pestaluky on 11-09-17.
 //  Copyright 2011 Magmic Inc. All rights reserved.
 //
 
-#import "HMTEK24ViewController.h"
+#import "StatusViewController.h"
 
-@interface HMTEK24ViewController()
-- (void) onFoursquareAuthenticationComplete;
-@end
+@implementation StatusViewController
 
-@implementation HMTEK24ViewController
-
-@synthesize statusViewController;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -24,27 +27,13 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void) dealloc {
-  self.statusViewController = nil;
-  [super dealloc];
-}
-
 #pragma mark - View lifecycle
 
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  if(statusViewController == nil) {
-    statusViewController = [[StatusViewController alloc] initWithNibName:nil bundle:nil];
-  }
+    // Do any additional setup after loading the view from its nib.
 }
-
-- (void) onFoursquareAuthenticationComplete {
-  [self presentModalViewController:statusViewController animated:YES];
-}
-
 
 - (void)viewDidUnload
 {
@@ -59,8 +48,4 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)onTestButtonPress:(id)sender {
-  [self onFoursquareAuthenticationComplete];
-  
-}
 @end
