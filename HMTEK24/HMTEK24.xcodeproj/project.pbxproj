@@ -1,0 +1,291 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D6A409AA1425198900F05553 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A409A91425198900F05553 /* UIKit.framework */; };
+		D6A409AC1425198900F05553 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A409AB1425198900F05553 /* Foundation.framework */; };
+		D6A409AE1425198900F05553 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A409AD1425198900F05553 /* CoreGraphics.framework */; };
+		D6A409B41425198900F05553 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6A409B21425198900F05553 /* InfoPlist.strings */; };
+		D6A409B61425198900F05553 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A409B51425198900F05553 /* main.m */; };
+		D6A409BA1425198900F05553 /* HMTEK24AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A409B91425198900F05553 /* HMTEK24AppDelegate.m */; };
+		D6A409BD1425198900F05553 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A409BB1425198900F05553 /* MainWindow.xib */; };
+		D6A409C01425198900F05553 /* HMTEK24ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A409BF1425198900F05553 /* HMTEK24ViewController.m */; };
+		D6A409C31425198900F05553 /* HMTEK24ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A409C11425198900F05553 /* HMTEK24ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D6A409A51425198900F05553 /* HMTEK24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMTEK24.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A409A91425198900F05553 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D6A409AB1425198900F05553 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D6A409AD1425198900F05553 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D6A409B11425198900F05553 /* HMTEK24-Info.plist */ = {isa = PBXFileReference; path = "HMTEK24-Info.plist"; sourceTree = "<group>"; };
+		D6A409B31425198900F05553 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D6A409B51425198900F05553 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D6A409B71425198900F05553 /* HMTEK24-Prefix.pch */ = {isa = PBXFileReference; path = "HMTEK24-Prefix.pch"; sourceTree = "<group>"; };
+		D6A409B81425198900F05553 /* HMTEK24AppDelegate.h */ = {isa = PBXFileReference; path = HMTEK24AppDelegate.h; sourceTree = "<group>"; };
+		D6A409B91425198900F05553 /* HMTEK24AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMTEK24AppDelegate.m; sourceTree = "<group>"; };
+		D6A409BC1425198900F05553 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D6A409BE1425198900F05553 /* HMTEK24ViewController.h */ = {isa = PBXFileReference; path = HMTEK24ViewController.h; sourceTree = "<group>"; };
+		D6A409BF1425198900F05553 /* HMTEK24ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMTEK24ViewController.m; sourceTree = "<group>"; };
+		D6A409C21425198900F05553 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HMTEK24ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D6A409A21425198900F05553 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A409AA1425198900F05553 /* UIKit.framework in Frameworks */,
+				D6A409AC1425198900F05553 /* Foundation.framework in Frameworks */,
+				D6A409AE1425198900F05553 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D6A4099A1425198900F05553 = {
+			isa = PBXGroup;
+			children = (
+				D6A409AF1425198900F05553 /* HMTEK24 */,
+				D6A409A81425198900F05553 /* Frameworks */,
+				D6A409A61425198900F05553 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D6A409A61425198900F05553 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6A409A51425198900F05553 /* HMTEK24.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6A409A81425198900F05553 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6A409A91425198900F05553 /* UIKit.framework */,
+				D6A409AB1425198900F05553 /* Foundation.framework */,
+				D6A409AD1425198900F05553 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D6A409AF1425198900F05553 /* HMTEK24 */ = {
+			isa = PBXGroup;
+			children = (
+				D6A409B81425198900F05553 /* HMTEK24AppDelegate.h */,
+				D6A409B91425198900F05553 /* HMTEK24AppDelegate.m */,
+				D6A409BB1425198900F05553 /* MainWindow.xib */,
+				D6A409BE1425198900F05553 /* HMTEK24ViewController.h */,
+				D6A409BF1425198900F05553 /* HMTEK24ViewController.m */,
+				D6A409C11425198900F05553 /* HMTEK24ViewController.xib */,
+				D6A409B01425198900F05553 /* Supporting Files */,
+			);
+			path = HMTEK24;
+			sourceTree = "<group>";
+		};
+		D6A409B01425198900F05553 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6A409B11425198900F05553 /* HMTEK24-Info.plist */,
+				D6A409B21425198900F05553 /* InfoPlist.strings */,
+				D6A409B51425198900F05553 /* main.m */,
+				D6A409B71425198900F05553 /* HMTEK24-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D6A409A41425198900F05553 /* HMTEK24 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6A409C61425198900F05553 /* Build configuration list for PBXNativeTarget "HMTEK24" */;
+			buildPhases = (
+				D6A409A11425198900F05553 /* Sources */,
+				D6A409A21425198900F05553 /* Frameworks */,
+				D6A409A31425198900F05553 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HMTEK24;
+			productName = HMTEK24;
+			productReference = D6A409A51425198900F05553 /* HMTEK24.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D6A4099C1425198900F05553 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Magmic Inc";
+			};
+			buildConfigurationList = D6A4099F1425198900F05553 /* Build configuration list for PBXProject "HMTEK24" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D6A4099A1425198900F05553;
+			productRefGroup = D6A409A61425198900F05553 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D6A409A41425198900F05553 /* HMTEK24 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D6A409A31425198900F05553 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A409B41425198900F05553 /* InfoPlist.strings in Resources */,
+				D6A409BD1425198900F05553 /* MainWindow.xib in Resources */,
+				D6A409C31425198900F05553 /* HMTEK24ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D6A409A11425198900F05553 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A409B61425198900F05553 /* main.m in Sources */,
+				D6A409BA1425198900F05553 /* HMTEK24AppDelegate.m in Sources */,
+				D6A409C01425198900F05553 /* HMTEK24ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D6A409B21425198900F05553 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6A409B31425198900F05553 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D6A409BB1425198900F05553 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6A409BC1425198900F05553 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		D6A409C11425198900F05553 /* HMTEK24ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6A409C21425198900F05553 /* en */,
+			);
+			name = HMTEK24ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D6A409C41425198900F05553 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D6A409C51425198900F05553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D6A409C71425198900F05553 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HMTEK24/HMTEK24-Prefix.pch";
+				INFOPLIST_FILE = "HMTEK24/HMTEK24-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D6A409C81425198900F05553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HMTEK24/HMTEK24-Prefix.pch";
+				INFOPLIST_FILE = "HMTEK24/HMTEK24-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D6A4099F1425198900F05553 /* Build configuration list for PBXProject "HMTEK24" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6A409C41425198900F05553 /* Debug */,
+				D6A409C51425198900F05553 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6A409C61425198900F05553 /* Build configuration list for PBXNativeTarget "HMTEK24" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6A409C71425198900F05553 /* Debug */,
+				D6A409C81425198900F05553 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D6A4099C1425198900F05553 /* Project object */;
+}
