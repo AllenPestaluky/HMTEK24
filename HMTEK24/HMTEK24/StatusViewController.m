@@ -55,10 +55,13 @@
   tempFrame.origin.y = startingY + lineHeight;
   timeRemainingLabel2.frame = tempFrame;
   
-  timeRemainingLabel3 = [self newLabel:NO];
-  tempFrame = timeRemainingLabel1.frame;
-  tempFrame.origin.y = startingY + lineHeight *2;
-  timeRemainingLabel3.frame = tempFrame;
+  timeRemainingLabel2.text = [NSString stringWithFormat: @"remain"];
+  [self sizeLabel: timeRemainingLabel2];
+  
+//  timeRemainingLabel3 = [self newLabel:NO];
+//  tempFrame = timeRemainingLabel1.frame;
+//  tempFrame.origin.y = startingY + lineHeight *2;
+//  timeRemainingLabel3.frame = tempFrame;
   
   PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
   status.isZombie = NO;
@@ -67,10 +70,10 @@
 
 -(UILabel*) newLabel: (BOOL) addToZombieView {
   UILabel* label = [[FontLabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0) fontName:@"PRISTINA" pointSize:60.0f];
-	label.textColor = [UIColor redColor];
+	label.textColor = [UIColor blackColor];
 	label.backgroundColor = nil;
 	label.opaque = NO;
-  label.numberOfLines = 0; // any number of lines
+  label.numberOfLines = 1; // only one line for these
   label.textAlignment = UITextAlignmentCenter;
   if(addToZombieView) {
     [ZombieView addSubview:label];
@@ -86,13 +89,17 @@
   timeRemainingLabel1 = nil;
   [timeRemainingLabel2 release];
   timeRemainingLabel2 = nil;
-  [timeRemainingLabel3 release];
-  timeRemainingLabel3 = nil;
+  //[timeRemainingLabel3 release];
+  //timeRemainingLabel3 = nil;
   
   [ZombieView release];
   ZombieView = nil;
   [AliveView release];
   AliveView = nil;
+  [venuStatsTextView release];
+  venuStatsTextView = nil;
+  [zombieReasonTextView release];
+  zombieReasonTextView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -117,13 +124,15 @@
   if(status.isZombie) {
     ZombieView.hidden = NO;
     
+    // TODO: give the reason that they became a zombie:
+    //zombieReasonTextView.text =
+    
   } else {
     
     timeRemainingLabel1.text = [NSString stringWithFormat: @"%i:%i:%i", status.hours, status.minutes, status.seconds];
     [self sizeLabel: timeRemainingLabel1];
     
-    timeRemainingLabel2.text = [NSString stringWithFormat: @"remain"];
-    [self sizeLabel: timeRemainingLabel2];
+    venuStatsTextView.text = [NSString stringWithFormat: @"VENU STATISTICS:\n\nZombies killed: %i\nOther survivors: %i", 24, 5];
     
     AliveView.hidden = NO;
   }
@@ -151,9 +160,11 @@
 - (void)dealloc {
   [timeRemainingLabel1 release];
   [timeRemainingLabel2 release];
-  [timeRemainingLabel3 release];
+  //[timeRemainingLabel3 release];
   [ZombieView release];
   [AliveView release];
+  [venuStatsTextView release];
+  [zombieReasonTextView release];
   [super dealloc];
 }
 @end

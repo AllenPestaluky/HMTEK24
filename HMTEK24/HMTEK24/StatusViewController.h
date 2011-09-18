@@ -16,7 +16,10 @@
   
   UILabel* timeRemainingLabel1;
   UILabel* timeRemainingLabel2;
-  UILabel* timeRemainingLabel3;
+  //UILabel* timeRemainingLabel3;
+  
+  IBOutlet UITextView *zombieReasonTextView;
+  IBOutlet UITextView *venuStatsTextView;
 }
 - (void)applicationDidBecomeActive;
 - (void)refreshStatusView: (PlayerStatus*) status;

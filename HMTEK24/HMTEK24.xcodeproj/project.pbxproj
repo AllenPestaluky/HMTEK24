@@ -126,7 +126,7 @@
 		D621A3BE142531D0002B9294 /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusViewController.h; sourceTree = "<group>"; };
 		D621A3BF142531D0002B9294 /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
 		D621A3C0142531D0002B9294 /* StatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusViewController.xib; sourceTree = "<group>"; };
-		D6A409A51425198900F05553 /* HMTEK24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMTEK24.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A409A51425198900F05553 /* Checkin or Die.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Checkin or Die.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A409A91425198900F05553 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D6A409AB1425198900F05553 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D6A409AD1425198900F05553 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -326,7 +326,7 @@
 		D6A409A61425198900F05553 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D6A409A51425198900F05553 /* HMTEK24.app */,
+				D6A409A51425198900F05553 /* Checkin or Die.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -427,7 +427,7 @@
 			);
 			name = HMTEK24;
 			productName = HMTEK24;
-			productReference = D6A409A51425198900F05553 /* HMTEK24.app */;
+			productReference = D6A409A51425198900F05553 /* Checkin or Die.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -605,7 +605,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "HMTEK24/HMTEK24-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Checkin or Die";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -618,7 +618,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "HMTEK24/HMTEK24-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Checkin or Die";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
