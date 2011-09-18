@@ -15,8 +15,6 @@
 
 @property (nonatomic, retain) StatusViewController* statusViewController;
 
-- (IBAction)onTestButtonPress:(id)sender;
-
 - (void)applicationDidBecomeActive;
 
 @end

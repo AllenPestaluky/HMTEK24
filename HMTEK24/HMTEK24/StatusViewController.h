@@ -17,8 +17,12 @@
   UILabel* timeRemainingLabel1;
   UILabel* timeRemainingLabel2;
   UILabel* timeRemainingLabel3;
+  IBOutlet UIButton *checkinZombieButton;
+  IBOutlet UIButton *checkinAliveButton;
 }
 - (void)applicationDidBecomeActive;
 - (void)refreshStatusView: (PlayerStatus*) status;
+- (IBAction)onCheckinAlive:(id)sender;
+- (IBAction)onCheckinZombie:(id)sender;
 
 @end

@@ -90,15 +90,17 @@
   [timeRemainingLabel3 release];
   timeRemainingLabel3 = nil;
   
+  [checkinZombieButton release];
+  checkinZombieButton = nil;
+  [checkinAliveButton release];
+  checkinAliveButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
 - (void)applicationDidBecomeActive {
-  PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
-  status.isZombie = (rand() % 2 == 0) ? YES : NO;
-  [self refreshStatusView:status];
+  // TODO: trigger a refresh of foursquare data and, in turn, the status
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -114,9 +116,12 @@
   timeRemainingLabel1.hidden = YES;
   timeRemainingLabel2.hidden = YES;
   timeRemainingLabel3.hidden = YES;
+  checkinAliveButton.hidden = YES;
+  checkinZombieButton.hidden = YES;
   
   if(status.isZombie) {
     zombieBackImage.hidden = NO;
+    checkinZombieButton.hidden = NO;
     
   } else {
     aliveBackImage.hidden = NO;
@@ -132,7 +137,20 @@
     timeRemainingLabel3.hidden = NO;
     timeRemainingLabel3.text = [NSString stringWithFormat: @"remain"];
     [self sizeLabel: timeRemainingLabel3];
+    checkinAliveButton.hidden = NO;
   }
+}
+
+- (IBAction)onCheckinAlive:(id)sender {
+  PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
+  status.isZombie = YES;
+  [self refreshStatusView:status];
+}
+
+- (IBAction)onCheckinZombie:(id)sender {
+  PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
+  status.isZombie = NO;
+  [self refreshStatusView:status];
 }
 
 -(void) sizeLabel: (UILabel*) label {
@@ -145,6 +163,8 @@
 - (void)dealloc {
   [aliveBackImage release];
   [zombieBackImage release];
+  [checkinZombieButton release];
+  [checkinAliveButton release];
   [super dealloc];
 }
 @end

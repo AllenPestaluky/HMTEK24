@@ -83,8 +83,4 @@
   [statusViewController applicationDidBecomeActive];
 }
 
-- (IBAction)onTestButtonPress:(id)sender {
-  [self onFoursquareAuthenticationComplete];
-  
-}
 @end
