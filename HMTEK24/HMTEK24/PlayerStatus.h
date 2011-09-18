@@ -15,16 +15,25 @@
   int hours;
   int minutes;
   bool isZombie;
+  NSArray *categories;
 }
 
 @property long zombieTime;
+@property long lastCheckinTime;
 @property int hours;
 @property int minutes;
 @property int seconds;
 @property bool isZombie;
+@property NSArray *categories;
 
--(void)calculateZombieTime:(StatusViewController *)controller;
+-(void)fetchMostRecent:(StatusViewController *)controller;
+
+-(void)calcZombieTime:(StatusViewController *)controller withVenue:(NSString *)venueID withCreatedAt:(NSDecimalNumber *)createdAt;
 -(void)reset;
+-(void)load;
+-(void)save;
 -(void)getZombieStatus:(StatusViewController *)controller;
+-(void)recalcTTL:(StatusViewController *)controller;
+-(void)checkinZombie:(StatusViewController *)controller;
 
 @end

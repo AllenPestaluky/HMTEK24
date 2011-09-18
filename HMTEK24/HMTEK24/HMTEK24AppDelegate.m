@@ -6,6 +6,7 @@
 //  Copyright 2011 Magmic Inc. All rights reserved.
 //
 
+#import "Foursquare2.h"
 #import "HMTEK24AppDelegate.h"
 
 #import "HMTEK24ViewController.h"
@@ -18,7 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   // Override point for customization after application launch.
-   
+  
+  [Foursquare2 initialize];
   self.window.rootViewController = self.viewController;
   [self.window makeKeyAndVisible];
     return YES;

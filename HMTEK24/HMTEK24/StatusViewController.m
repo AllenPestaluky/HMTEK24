@@ -137,8 +137,7 @@
 
 - (IBAction)onCheckinZombie:(id)sender {
   PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
-  status.isZombie = NO;
-  [self refreshStatusView:status];
+  [status checkinZombie:self];
 }
 
 -(void) sizeLabel: (UILabel*) label {
