@@ -235,7 +235,8 @@
 - (void) checkinHuman:(StatusViewController *)controller {
   [FoursquareCheckinList showCheckin:controller shoutList:nil callback:^(BOOL success, id result) {
     if (success) {
-      [self processMostRecent:controller checkin:result];
+      NSDictionary *checkin = (NSDictionary *)[(NSDictionary *)[(NSDictionary *)result valueForKey:@"response"] valueForKey:@"checkin"];
+      [self processMostRecent:controller checkin:checkin];
     }
   }];
 }
@@ -243,7 +244,8 @@
 - (void) checkinZombie:(StatusViewController *)controller {
   [FoursquareCheckinList showCheckin:controller shoutList:nil callback:^(BOOL success, id result) {
     if (success) {
-      NSArray *categories = (NSArray *)[(NSDictionary *)[(NSDictionary *)[(NSDictionary *)[(NSDictionary *)result valueForKey:@"response"] valueForKey:@"checkin"] valueForKey:@"venue"] valueForKey:@"categories"];
+      NSDictionary *checkin = (NSDictionary *)[(NSDictionary *)[(NSDictionary *)result valueForKey:@"response"] valueForKey:@"checkin"];
+      NSArray *categories = (NSArray *)[(NSDictionary *)[checkin valueForKey:@"venue"] valueForKey:@"categories"];
 //      NSString *categoryId = (NSString *)[(NSDictionary *)[categories objectAtIndex:0] valueForKey:@"id"];
       
       NSString *categoryIcon = [(NSDictionary *)[categories objectAtIndex:0] valueForKey:@"icon"];
@@ -269,7 +271,7 @@
         isZombie = false;
       }
 
-      [self processMostRecent:controller checkin:result];
+      [self processMostRecent:controller checkin:checkin];
       
       NSLog(@"%@", categoryIcon);
     }
