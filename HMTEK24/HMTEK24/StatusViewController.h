@@ -10,15 +10,13 @@
 @class PlayerStatus;
 @class FontLabel;
 
-@interface StatusViewController : UIViewController {
-  IBOutlet UIImageView *zombieBackImage;
-  IBOutlet UIImageView *aliveBackImage;
+@interface StatusViewController : UIViewController {  
+  IBOutlet UIView *ZombieView;
+  IBOutlet UIView *AliveView;
   
   UILabel* timeRemainingLabel1;
   UILabel* timeRemainingLabel2;
   UILabel* timeRemainingLabel3;
-  IBOutlet UIButton *checkinZombieButton;
-  IBOutlet UIButton *checkinAliveButton;
 }
 - (void)applicationDidBecomeActive;
 - (void)refreshStatusView: (PlayerStatus*) status;

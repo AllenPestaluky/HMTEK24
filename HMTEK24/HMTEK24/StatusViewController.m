@@ -12,7 +12,7 @@
 
 @interface StatusViewController()
 -(void) sizeLabel: (UILabel*) label;
--(UILabel*) newLabel;
+-(UILabel*) newLabel: (BOOL) addToZombieView;
 @end
 
 @implementation StatusViewController
@@ -45,17 +45,17 @@
   int startingY = self.view.frame.size.height * 0.05;
   int lineHeight = self.view.frame.size.height * 0.08;
   
-  timeRemainingLabel1 = [self newLabel];
+  timeRemainingLabel1 = [self newLabel:NO];
   tempFrame = timeRemainingLabel1.frame;
   tempFrame.origin.y = startingY;
   timeRemainingLabel1.frame = tempFrame;
   
-  timeRemainingLabel2 = [self newLabel];
+  timeRemainingLabel2 = [self newLabel:NO];
   tempFrame = timeRemainingLabel2.frame;
   tempFrame.origin.y = startingY + lineHeight;
   timeRemainingLabel2.frame = tempFrame;
   
-  timeRemainingLabel3 = [self newLabel];
+  timeRemainingLabel3 = [self newLabel:NO];
   tempFrame = timeRemainingLabel1.frame;
   tempFrame.origin.y = startingY + lineHeight *2;
   timeRemainingLabel3.frame = tempFrame;
@@ -65,24 +65,23 @@
   [self refreshStatusView:status];
 }
 
--(UILabel*) newLabel {
+-(UILabel*) newLabel: (BOOL) addToZombieView {
   UILabel* label = [[FontLabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0) fontName:@"PRISTINA" pointSize:60.0f];
 	label.textColor = [UIColor redColor];
 	label.backgroundColor = nil;
 	label.opaque = NO;
   label.numberOfLines = 0; // any number of lines
   label.textAlignment = UITextAlignmentCenter;
-	[self.view addSubview:label];
+  if(addToZombieView) {
+    [ZombieView addSubview:label];
+  } else {
+    [AliveView addSubview:label];
+  }
   return label;
 }
 
 - (void)viewDidUnload
-{
-  [aliveBackImage release];
-  aliveBackImage = nil;
-  [zombieBackImage release];
-  zombieBackImage = nil;
-  
+{  
   [timeRemainingLabel1 release];
   timeRemainingLabel1 = nil;
   [timeRemainingLabel2 release];
@@ -90,10 +89,10 @@
   [timeRemainingLabel3 release];
   timeRemainingLabel3 = nil;
   
-  [checkinZombieButton release];
-  checkinZombieButton = nil;
-  [checkinAliveButton release];
-  checkinAliveButton = nil;
+  [ZombieView release];
+  ZombieView = nil;
+  [AliveView release];
+  AliveView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -112,29 +111,21 @@
 
 - (void)refreshStatusView: (PlayerStatus*) status {
   // First hide everything:
-  zombieBackImage.hidden = YES;
-  aliveBackImage.hidden = YES;
-  timeRemainingLabel1.hidden = YES;
-  timeRemainingLabel2.hidden = YES;
-  timeRemainingLabel3.hidden = YES;
-  checkinAliveButton.hidden = YES;
-  checkinZombieButton.hidden = YES;
+  ZombieView.hidden = YES;
+  AliveView.hidden = YES;
   
   if(status.isZombie) {
-    zombieBackImage.hidden = NO;
-    checkinZombieButton.hidden = NO;
+    ZombieView.hidden = NO;
     
   } else {
-    aliveBackImage.hidden = NO;
     
-    timeRemainingLabel1.hidden = NO;
     timeRemainingLabel1.text = [NSString stringWithFormat: @"%i:%i:%i", status.hours, status.minutes, status.seconds];
     [self sizeLabel: timeRemainingLabel1];
     
-    timeRemainingLabel3.hidden = NO;
-    timeRemainingLabel3.text = [NSString stringWithFormat: @"remain"];
-    [self sizeLabel: timeRemainingLabel3];
-    checkinAliveButton.hidden = NO;
+    timeRemainingLabel2.text = [NSString stringWithFormat: @"remain"];
+    [self sizeLabel: timeRemainingLabel2];
+    
+    AliveView.hidden = NO;
   }
 }
 
@@ -158,10 +149,11 @@
 }
 
 - (void)dealloc {
-  [aliveBackImage release];
-  [zombieBackImage release];
-  [checkinZombieButton release];
-  [checkinAliveButton release];
+  [timeRemainingLabel1 release];
+  [timeRemainingLabel2 release];
+  [timeRemainingLabel3 release];
+  [ZombieView release];
+  [AliveView release];
   [super dealloc];
 }
 @end
