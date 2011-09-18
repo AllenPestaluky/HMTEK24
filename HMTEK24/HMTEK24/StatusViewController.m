@@ -63,22 +63,22 @@ const int infoButtonTag = 1;
                            infoButton.frame.size.height + 40);
   [infoButton setFrame:rect];*/
   
-  CGRect tempFrame;
-  int startingY = self.view.frame.size.height * 0.05;
-  int lineHeight = self.view.frame.size.height * 0.08;
+//  CGRect tempFrame;
+//  int startingY = self.view.frame.size.height * 0.05;
+//  int lineHeight = self.view.frame.size.height * 0.08;
   
-  timeRemainingLabel1 = [self newLabel:NO];
-  tempFrame = timeRemainingLabel1.frame;
-  tempFrame.origin.y = startingY;
-  timeRemainingLabel1.frame = tempFrame;
-  
-  timeRemainingLabel2 = [self newLabel:NO];
-  tempFrame = timeRemainingLabel2.frame;
-  tempFrame.origin.y = startingY + lineHeight;
-  timeRemainingLabel2.frame = tempFrame;
-  
-  timeRemainingLabel2.text = [NSString stringWithFormat: @"remain"];
-  [self sizeLabel: timeRemainingLabel2];
+//  timeRemainingLabel1 = [self newLabel:NO];
+//  tempFrame = timeRemainingLabel1.frame;
+//  tempFrame.origin.y = startingY;
+//  timeRemainingLabel1.frame = tempFrame;
+//  
+//  timeRemainingLabel2 = [self newLabel:NO];
+//  tempFrame = timeRemainingLabel2.frame;
+//  tempFrame.origin.y = startingY + lineHeight;
+//  timeRemainingLabel2.frame = tempFrame;
+//  
+//  timeRemainingLabel2.text = [NSString stringWithFormat: @"remain"];
+//  [self sizeLabel: timeRemainingLabel2];
   
   ZombieView.hidden = YES;
   AliveView.hidden = YES;
@@ -167,6 +167,8 @@ const int infoButtonTag = 1;
   zombieReasonTextView = nil;
   [venueStatusTextView release];
   venueStatusTextView = nil;
+  [timeRemainingLabel release];
+  timeRemainingLabel = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -291,8 +293,7 @@ const int infoButtonTag = 1;
       photoOverlayImage.image = photoOverlay4;
     }
     
-    timeRemainingLabel1.text = [NSString stringWithFormat: @"%02i:%02i:%02i", status.hours, status.minutes, status.seconds];
-    [self sizeLabel: timeRemainingLabel1];
+    timeRemainingLabel.text = [NSString stringWithFormat: @"%02i:%02i:%02i\nremain", status.hours, status.minutes, status.seconds];
     
     venueStatusTextView.text = [NSString stringWithFormat: @"%@:\n\nZombies killed: %i/%i\nOther survivors: %i", status.lastVenueName, status.zedsKilled, status.zeds, status.fellowSurvivors];
     
@@ -342,6 +343,7 @@ const int infoButtonTag = 1;
   [photoOverlayImage release];
   [zombieReasonTextView release];
   [venueStatusTextView release];
+  [timeRemainingLabel release];
   [super dealloc];
 }
 @end

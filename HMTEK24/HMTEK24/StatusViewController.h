@@ -14,6 +14,7 @@
   IBOutlet UIView *ZombieView;
   IBOutlet UIView *AliveView;
   
+  IBOutlet UILabel *timeRemainingLabel;
   UILabel* timeRemainingLabel1;
   UILabel* timeRemainingLabel2;
   //UILabel* timeRemainingLabel3;
