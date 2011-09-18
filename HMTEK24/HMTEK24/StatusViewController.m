@@ -88,7 +88,16 @@ const int infoButtonTag = 1;
 //  tempFrame.origin.y = startingY + lineHeight *2;
 //  timeRemainingLabel3.frame = tempFrame;
   
-  defaultVenuIcon = [[UIImage alloc] initWithContentsOfFile:@"Resources/default_venue_64.png"];
+//  defaultVenuIcon = [[UIImage alloc] initWithContentsOfFile:@"Resources/default_venue_64.png"];
+//  photoOverlay1 = [[UIImage alloc] initWithContentsOfFile:@"Resources/Layer_1_Normal.png"];
+//  photoOverlay2 = [[UIImage alloc] initWithContentsOfFile:@"Resources/Layer_2.png"];
+//  photoOverlay3 = [[UIImage alloc] initWithContentsOfFile:@"Resources/Layer_3.png"];
+  //  photoOverlay4 = [[UIImage alloc] initWithContentsOfFile:@"Resources/Layer_4_Zombie.png"];
+  defaultVenuIcon = [[UIImage imageNamed:@"default_venue_64.png"] retain];
+  photoOverlay1 = [[UIImage imageNamed:@"Layer_1_Normal.png"] retain];
+  photoOverlay2 = [[UIImage imageNamed:@"Layer_2.png"] retain];
+  photoOverlay3 = [[UIImage imageNamed:@"Layer_3.png"] retain];
+  photoOverlay4 = [[UIImage imageNamed:@"Layer_4_Zombie.png"] retain];
 
   //[status getZombieStatus:self]; // cause this will never be accurate anyway
   
@@ -116,6 +125,16 @@ const int infoButtonTag = 1;
 
 - (void)viewDidUnload
 {  
+  
+  [photoOverlay1 release];
+  photoOverlay1 = nil;
+  [photoOverlay2 release];
+  photoOverlay2 = nil;
+  [photoOverlay3 release];
+  photoOverlay3 = nil;
+  [photoOverlay4 release];
+  photoOverlay4 = nil;
+  
   [defaultVenuIcon release];
   defaultVenuIcon = nil;
   
@@ -249,11 +268,22 @@ const int infoButtonTag = 1;
     
     
   } else {
+    float zombification = ((status.lastCheckinTime - status.zombieTime) / (18* 3600));
+    
+    if(zombification > 0.75) {
+      photoOverlayImage.image = photoOverlay1;
+    } else if (zombification > 0.5) {
+      photoOverlayImage.image = photoOverlay2;
+    } else if (zombification > 0.25) {
+      photoOverlayImage.image = photoOverlay3;
+    } else {
+      photoOverlayImage.image = photoOverlay4;
+    }
     
     timeRemainingLabel1.text = [NSString stringWithFormat: @"%02i:%02i:%02i", status.hours, status.minutes, status.seconds];
     [self sizeLabel: timeRemainingLabel1];
     
-    venueStatusTextView.text = [NSString stringWithFormat: @"%@ STATISTICS:\n\nZombies killed: %i/%i\nOther survivors: %i", status.lastVenueName, status.zedsKilled, status.zeds, status.fellowSurvivors];
+    venueStatusTextView.text = [NSString stringWithFormat: @"%@:\n\nZombies killed: %i/%i\nOther survivors: %i", status.lastVenueName, status.zedsKilled, status.zeds, status.fellowSurvivors];
     
     AliveView.hidden = NO;
   }
@@ -282,6 +312,10 @@ const int infoButtonTag = 1;
 }
 
 - (void)dealloc {
+  [photoOverlay1 release];
+  [photoOverlay2 release];
+  [photoOverlay3 release];
+  [photoOverlay4 release];
   [defaultVenuIcon release];
   [timeRemainingLabel1 release];
   [timeRemainingLabel2 release];

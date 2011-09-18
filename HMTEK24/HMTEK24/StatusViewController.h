@@ -31,6 +31,11 @@
   
   UIImage* defaultVenuIcon;
   
+  UIImage* photoOverlay1;
+  UIImage* photoOverlay2;
+  UIImage* photoOverlay3;
+  UIImage* photoOverlay4;
+  
   PlayerStatus *status;
 }
 
