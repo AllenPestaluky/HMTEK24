@@ -97,7 +97,6 @@
 
 - (void)applicationDidBecomeActive {
   PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
-  status.isZombie = (rand() % 2 == 0) ? YES : NO;
   [self refreshStatusView:status];
 }
 
