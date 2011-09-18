@@ -179,9 +179,9 @@ const int infoButtonTag = 1;
       //venueType1Image.image = (the 64x64 url of the venu icon)
     }
     // TODO: do this for the rest of the images
+
+    zombieReasonTextView.text = [NSString stringWithFormat:@"%@ has been overcome by the horde at %@!", @"Player Name", @"Venue Name"];
     
-    // TODO: give the reason that they became a zombie:
-    //zombieReasonTextView.text =
     
   } else {
     
