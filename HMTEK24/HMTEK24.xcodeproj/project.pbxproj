@@ -62,6 +62,7 @@
 		D6E3699E1425781D00C1D7D1 /* ButtonAlive_Down.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E3699A1425781D00C1D7D1 /* ButtonAlive_Down.png */; };
 		D6E3699F1425781D00C1D7D1 /* ButtonAlive_Up.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E3699B1425781D00C1D7D1 /* ButtonAlive_Up.png */; };
 		D6E369A1142578CF00C1D7D1 /* ButtonZombie_Down.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E369A0142578CE00C1D7D1 /* ButtonZombie_Down.png */; };
+		D6ECFBD51426509500BEC017 /* default_venue_64.png in Resources */ = {isa = PBXBuildFile; fileRef = D6ECFBD41426509500BEC017 /* default_venue_64.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,7 +127,7 @@
 		D621A3BE142531D0002B9294 /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusViewController.h; sourceTree = "<group>"; };
 		D621A3BF142531D0002B9294 /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
 		D621A3C0142531D0002B9294 /* StatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusViewController.xib; sourceTree = "<group>"; };
-		D6A409A51425198900F05553 /* HMTEK24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMTEK24.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A409A51425198900F05553 /* Check-in or Die.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Check-in or Die.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A409A91425198900F05553 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D6A409AB1425198900F05553 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D6A409AD1425198900F05553 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -162,6 +163,7 @@
 		D6E3699A1425781D00C1D7D1 /* ButtonAlive_Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonAlive_Down.png; sourceTree = "<group>"; };
 		D6E3699B1425781D00C1D7D1 /* ButtonAlive_Up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonAlive_Up.png; sourceTree = "<group>"; };
 		D6E369A0142578CE00C1D7D1 /* ButtonZombie_Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonZombie_Down.png; sourceTree = "<group>"; };
+		D6ECFBD41426509500BEC017 /* default_venue_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_venue_64.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,7 +328,7 @@
 		D6A409A61425198900F05553 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D6A409A51425198900F05553 /* HMTEK24.app */,
+				D6A409A51425198900F05553 /* Check-in or Die.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -377,6 +379,7 @@
 		D6E369701425586700C1D7D1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D6ECFBD41426509500BEC017 /* default_venue_64.png */,
 				D6E369A0142578CE00C1D7D1 /* ButtonZombie_Down.png */,
 				D6E369991425781C00C1D7D1 /* ButtonZombie_Up.png */,
 				D6E3699A1425781D00C1D7D1 /* ButtonAlive_Down.png */,
@@ -427,7 +430,7 @@
 			);
 			name = HMTEK24;
 			productName = HMTEK24;
-			productReference = D6A409A51425198900F05553 /* HMTEK24.app */;
+			productReference = D6A409A51425198900F05553 /* Check-in or Die.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -477,6 +480,7 @@
 				D6E3699E1425781D00C1D7D1 /* ButtonAlive_Down.png in Resources */,
 				D6E3699F1425781D00C1D7D1 /* ButtonAlive_Up.png in Resources */,
 				D6E369A1142578CF00C1D7D1 /* ButtonZombie_Down.png in Resources */,
+				D6ECFBD51426509500BEC017 /* default_venue_64.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,7 +609,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "HMTEK24/HMTEK24-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Check-in or Die";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -618,7 +622,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "HMTEK24/HMTEK24-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Check-in or Die";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
