@@ -29,6 +29,8 @@
   IBOutlet UIImageView *venueType4Image;
   IBOutlet UIImageView *venueType5Image;
   
+  UIImage* defaultVenuIcon;
+  
   PlayerStatus *status;
 }
 

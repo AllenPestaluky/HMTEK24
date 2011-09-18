@@ -72,7 +72,9 @@
     self.category3 = (NSString *)[usDef objectForKey:@"zombie_category3"];
     self.category4 = (NSString *)[usDef objectForKey:@"zombie_category4"];    
   }
-  [self getZombieStatus:nil];
+  if (![Foursquare2 isNeedToAuthorize]) {
+    [self fetchMostRecent:nil];
+  }
 }
 
 - (void) save {

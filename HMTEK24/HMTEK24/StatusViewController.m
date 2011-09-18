@@ -84,8 +84,10 @@ const int infoButtonTag = 1;
 //  tempFrame = timeRemainingLabel1.frame;
 //  tempFrame.origin.y = startingY + lineHeight *2;
 //  timeRemainingLabel3.frame = tempFrame;
+  
+  defaultVenuIcon = [[UIImage alloc] initWithContentsOfFile:@"Resources/default_venue_64.png"];
 
-  [self refreshStatusView];
+  [status getZombieStatus:self];
 }
 
 -(UILabel*) newLabel: (BOOL) addToZombieView {
@@ -105,6 +107,9 @@ const int infoButtonTag = 1;
 
 - (void)viewDidUnload
 {  
+  [defaultVenuIcon release];
+  defaultVenuIcon = nil;
+  
   [timeRemainingLabel1 release];
   timeRemainingLabel1 = nil;
   [timeRemainingLabel2 release];
@@ -167,48 +172,64 @@ const int infoButtonTag = 1;
   [photoImage setImage:image];
   [image release];
   
+  // TODO: change back to default image
   if(status.isZombie) {
     ZombieView.hidden = NO;
     
-    // TODO: use some type of status.zombieVenueTypeCount property
-    int venueCount = 3;
-    venueType1Image.hidden = (venueCount > 0) ? NO : YES;
-    if(!venueType1Image.hidden) {
+    float dimAlphaValue = 0.25;
+    venueType1Image.alpha = status.category1 == nil ? dimAlphaValue : 1.0;
+    if(status.category1 == nil) {
       UIImage* image = [self newImageFromURL: status.category1];
+      if(image) {
       venueType1Image.image = image;
+      }
       [image release];
+    } else {
+      venueType1Image.image = defaultVenuIcon;
     }
-    venueType2Image.hidden = (venueCount > 0) ? NO : YES;
-    if(!venueType2Image.hidden) {
+    venueType2Image.alpha = status.category2 == nil ? dimAlphaValue : 1.0;
+    if(status.category2 == nil) {
       UIImage* image = [self newImageFromURL: status.category2];
-      venueType2Image.image = image;
+      if(image) {
+        venueType2Image.image = image;
+      }
       [image release];
+    } else {
+      venueType2Image.image = defaultVenuIcon;
     }
-    venueType3Image.hidden = (venueCount > 0) ? NO : YES;
-    if(!venueType3Image.hidden) {
+    venueType3Image.alpha = status.category3 == nil ? dimAlphaValue : 1.0;
+    if(status.category3 == nil) {
       UIImage* image = [self newImageFromURL: status.category3];
-      venueType3Image.image = image;
+      if(image) {
+        venueType3Image.image = image;
+      }
       [image release];
+    } else {
+      venueType3Image.image = defaultVenuIcon;
     }
-    venueType4Image.hidden = (venueCount > 0) ? NO : YES;
-    if(!venueType4Image.hidden) {
+    venueType4Image.alpha = status.category4 == nil ? dimAlphaValue : 1.0;
+    if(status.category4 == nil) {
       UIImage* image = [self newImageFromURL: status.category4];
-      venueType4Image.image = image;
+      if(image) {
+        venueType4Image.image = image;
+      }
       [image release];
+    } else {
+      venueType4Image.image = defaultVenuIcon;
     }
-    venueType5Image.hidden = YES; // this one doesn't ever exist I guess
+    venueType5Image.alpha = dimAlphaValue; // this one doesn't ever exist I guess
 //    if(!venueType5Image.hidden) {
 //      UIImage* image = [self newImageFromURL: status.category5];
 //      venueType5Image.image = image;
 //      [image release];
 //    }
 
-    zombieReasonTextView.text = [NSString stringWithFormat:@"%@ has been overcome by the horde at %@!", @"Player Name", @"Venue Name"];
+    zombieReasonTextView.text = [NSString stringWithFormat:@"%@ has been overcome by the horde at %@!", @"Player Name", status.zombifiedVenue];
     
     
   } else {
     
-    timeRemainingLabel1.text = [NSString stringWithFormat: @"%i:%i:%i", status.hours, status.minutes, status.seconds];
+    timeRemainingLabel1.text = [NSString stringWithFormat: @"%02i:%02i:%02i", status.hours, status.minutes, status.seconds];
     [self sizeLabel: timeRemainingLabel1];
     
     venueStatusTextView.text = [NSString stringWithFormat: @"%@ STATISTICS:\n\nZombies killed: %i/%i\nOther survivors: %i", status.lastVenueName, status.zedsKilled, status.zeds, status.fellowSurvivors];
@@ -225,12 +246,11 @@ const int infoButtonTag = 1;
 }
 
 - (IBAction)onCheckinAlive:(id)sender {
-  status.isZombie = YES;
-  [self refreshStatusView];
+  [status checkin:self];
 }
 
 - (IBAction)onCheckinZombie:(id)sender {
-  [status checkinZombie:self];
+  [status checkin:self];
 }
 
 -(void) sizeLabel: (UILabel*) label {
@@ -241,6 +261,7 @@ const int infoButtonTag = 1;
 }
 
 - (void)dealloc {
+  [defaultVenuIcon release];
   [timeRemainingLabel1 release];
   [timeRemainingLabel2 release];
   //[timeRemainingLabel3 release];
