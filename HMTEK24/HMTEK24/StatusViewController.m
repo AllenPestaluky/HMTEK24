@@ -17,6 +17,8 @@
 
 @implementation StatusViewController
 
+const int infoButtonTag = 1;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,6 +42,23 @@
 {
     [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
+  
+  UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+  infoButton.frame = CGRectMake(10, 10, 16, 16);
+  infoButton.backgroundColor = [UIColor clearColor];
+  [infoButton addTarget:self action:@selector(buttonPressed:) 
+       forControlEvents:UIControlEventTouchUpInside];
+  infoButton.tag = infoButtonTag;
+  [self.view addSubview:infoButton];
+  // Change the existing touch area by 40 pixels in each direction
+  // Move the x/y starting coordinates so the button remains in the same location
+  CGRect rect = CGRectMake(
+                           infoButton.frame.origin.x - 20,
+                           infoButton.frame.origin.y - 20,
+                           infoButton.frame.size.width + 40,
+                           infoButton.frame.size.height + 40);
+  [infoButton setFrame:rect];
+  [infoButton release];
   
   CGRect tempFrame;
   int startingY = self.view.frame.size.height * 0.05;
@@ -114,6 +133,13 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)buttonPressed:(UIButton *)button
+{
+  if(button.tag == infoButtonTag) {
+    // TODO: show info
+  }
 }
 
 - (void)refreshStatusView: (PlayerStatus*) status {
