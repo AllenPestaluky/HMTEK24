@@ -13,6 +13,9 @@
 
 @synthesize zombieTime;
 @synthesize isZombie;
+@synthesize hours;
+@synthesize minutes;
+@synthesize seconds;
 
 - (id)init
 {
@@ -26,7 +29,7 @@
 }
 
 - (void) reset {
-  zombieTime = [NSDecimalNumber zero];
+  zombieTime = 0;
 }
 
 - (void) calculateZombieTime:(StatusViewController *)controller {
@@ -72,13 +75,10 @@
           if ([remain compare:maxHoursMinusOne] > 0) {
             remain = [maxHoursMinusOne copy];
           }
-          
-          zombieTime = [createdAt decimalNumberByAdding:remain];
-          
-          NSDecimalNumber *now = [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] decimalValue]];
-          isZombie = [zombieTime compare:now] < 0;
-          
-          [controller refreshStatusView:self];
+
+          zombieTime = [[createdAt decimalNumberByAdding:remain] longValue];
+
+          [self getZombieStatus:controller];
         }
       }];
     }
@@ -86,13 +86,25 @@
 }
 
 - (void) getZombieStatus:(StatusViewController *)controller {
-  if ([zombieTime compare:[NSDecimalNumber zero]] == 0) {
+  if (zombieTime == 0) {
     [self calculateZombieTime:controller];
-  }
-  NSDecimalNumber *now = [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] decimalValue]];
-  isZombie = [zombieTime compare:now] < 0;
+  } else {
+    long now = [[NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] decimalValue]] longValue];
+    
+    int diff = zombieTime - now;
+    
+    if (diff < 0) {
+      isZombie = YES;
+    } else {
+      isZombie = NO;
+    
+      hours = diff / 3600;
+      minutes = (diff - hours*3600) / 60;
+      seconds = (diff - hours*3600 - minutes*60);
+    }
   
-  [controller refreshStatusView:self];
+    [controller refreshStatusView:self];
+  }
 }
 
 @end

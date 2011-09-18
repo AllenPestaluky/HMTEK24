@@ -11,11 +11,16 @@
 #import "StatusViewController.h"
 
 @interface PlayerStatus : NSObject {
-  NSDecimalNumber *zombieTime;
+  long zombieTime;
+  int hours;
+  int minutes;
   bool isZombie;
 }
 
-@property NSDecimalNumber *zombieTime;
+@property long zombieTime;
+@property int hours;
+@property int minutes;
+@property int seconds;
 @property bool isZombie;
 
 -(void)calculateZombieTime:(StatusViewController *)controller;

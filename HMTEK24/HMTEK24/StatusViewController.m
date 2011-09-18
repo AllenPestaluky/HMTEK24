@@ -97,7 +97,7 @@
 
 - (void)applicationDidBecomeActive {
   PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
-  [self refreshStatusView:status];
+  [status getZombieStatus:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -121,12 +121,8 @@
     aliveBackImage.hidden = NO;
     
     timeRemainingLabel1.hidden = NO;
-    timeRemainingLabel1.text = [NSString stringWithFormat: @"%i hours", 12];
+    timeRemainingLabel1.text = [NSString stringWithFormat: @"%i:%i:%i", status.hours, status.minutes, status.seconds];
     [self sizeLabel: timeRemainingLabel1];
-    
-    timeRemainingLabel2.hidden = NO;
-    timeRemainingLabel2.text = [NSString stringWithFormat: @"%i minutes", 32 ];
-    [self sizeLabel: timeRemainingLabel2];
     
     timeRemainingLabel3.hidden = NO;
     timeRemainingLabel3.text = [NSString stringWithFormat: @"remain"];
