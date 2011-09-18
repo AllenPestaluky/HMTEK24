@@ -115,10 +115,20 @@ const int infoButtonTag = 1;
   ZombieView = nil;
   [AliveView release];
   AliveView = nil;
-  [venuStatsTextView release];
-  venuStatsTextView = nil;
   [zombieReasonTextView release];
   zombieReasonTextView = nil;
+  [venueStatsTextView release];
+  venueStatsTextView = nil;
+  [venueType1Image release];
+  venueType1Image = nil;
+  [venueType2Image release];
+  venueType2Image = nil;
+  [venueType3Image release];
+  venueType3Image = nil;
+  [venueType4Image release];
+  venueType4Image = nil;
+  [venueType5Image release];
+  venueType5Image = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -150,6 +160,14 @@ const int infoButtonTag = 1;
   if(status.isZombie) {
     ZombieView.hidden = NO;
     
+    // TODO: make a zombieVenueTypeCount or something
+    //venueType1Image.hidden = (status.zombieVenueTypeCount > 0) ? NO : YES;
+    if(!venueType1Image.hidden) {
+      // TODO: set the image
+      //venueType1Image.image = (the 64x64 url of the venu icon)
+    }
+    // TODO: do this for the rest of the images
+    
     // TODO: give the reason that they became a zombie:
     //zombieReasonTextView.text =
     
@@ -158,7 +176,7 @@ const int infoButtonTag = 1;
     timeRemainingLabel1.text = [NSString stringWithFormat: @"%i:%i:%i", status.hours, status.minutes, status.seconds];
     [self sizeLabel: timeRemainingLabel1];
     
-    venuStatsTextView.text = [NSString stringWithFormat: @"VENU STATISTICS:\n\nZombies killed: %i\nOther survivors: %i", 24, 5];
+    venueStatsTextView.text = [NSString stringWithFormat: @"VENU STATISTICS:\n\nZombies killed: %i\nOther survivors: %i", 24, 5];
     
     AliveView.hidden = NO;
   }
@@ -189,8 +207,13 @@ const int infoButtonTag = 1;
   //[timeRemainingLabel3 release];
   [ZombieView release];
   [AliveView release];
-  [venuStatsTextView release];
   [zombieReasonTextView release];
+  [venueStatsTextView release];
+  [venueType1Image release];
+  [venueType2Image release];
+  [venueType3Image release];
+  [venueType4Image release];
+  [venueType5Image release];
   [super dealloc];
 }
 @end

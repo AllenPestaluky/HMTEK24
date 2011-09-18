@@ -18,8 +18,14 @@
   UILabel* timeRemainingLabel2;
   //UILabel* timeRemainingLabel3;
   
+  IBOutlet UITextView *venueStatsTextView;
   IBOutlet UITextView *zombieReasonTextView;
-  IBOutlet UITextView *venuStatsTextView;
+  
+  IBOutlet UIImageView *venueType1Image;
+  IBOutlet UIImageView *venueType2Image;
+  IBOutlet UIImageView *venueType3Image;
+  IBOutlet UIImageView *venueType4Image;
+  IBOutlet UIImageView *venueType5Image;
 }
 - (void)applicationDidBecomeActive;
 - (void)refreshStatusView: (PlayerStatus*) status;
