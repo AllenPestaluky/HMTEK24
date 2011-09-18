@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>FOURSQUARE_GAME_URL</key>
-	<string>http://magmic.com/checkinordie</string>
+	<string>http://magmic.com/DeadSquare</string>
 	<key>FOURSQUARE_HASH_TAG</key>
-	<string>#CheckinOrDIE</string>
+	<string>#DeadSquare</string>
 	<key>FOURSQUARE_OAUTH_KEY</key>
 	<string>DCS5HIDN2GOI31AX21M34PYIXBIKHJ2GGSXHHNNVG4VJ23TR</string>
 	<key>FOURSQUARE_OAUTH_SECRET</key>
 	<string>GGKH3BTLEFGMQYPIKCAZNFPQPKCCWGWQEC4GKOHGN4FJVNSH</string>
 	<key>FOURSQUARE_REDIRECT_URL</key>
-	<string>http://magmic.com/checkinordie</string>
+	<string>http://magmic.com/DeadSquare</string>
 </dict>
 </plist>
