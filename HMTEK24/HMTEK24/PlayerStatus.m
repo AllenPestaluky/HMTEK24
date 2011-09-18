@@ -14,6 +14,10 @@
 
 @synthesize zombieTime;
 @synthesize lastCheckinTime;
+@synthesize zeds;
+@synthesize fellowSurvivors;
+@synthesize zedsKilled;
+
 @synthesize isZombie;
 @synthesize hours;
 @synthesize minutes;

@@ -13,6 +13,10 @@
 @interface PlayerStatus : NSObject {
   long zombieTime;
   NSArray *categories;
+  int zeds;
+  int fellowSurvivors;
+  int zedsKilled;
+  
   int hours;
   int minutes;
   bool isZombie;
