@@ -12,8 +12,12 @@
 
 @interface PlayerStatus : NSObject {
   long zombieTime;
-  NSArray *categories;
+  NSString *category1;
+  NSString *category2;
+  NSString *category3;
+  NSString *category4;
   NSString *lastVenueName;
+  NSString *zombifiedVenue;
   int zeds;
   int fellowSurvivors;
   int zedsKilled;
@@ -26,7 +30,11 @@
 @property long zombieTime;
 @property long lastCheckinTime;
 @property (retain) NSString *lastVenueName;
-@property NSArray *categories;
+@property (retain) NSString *category1;
+@property (retain) NSString *category2;
+@property (retain) NSString *category3;
+@property (retain) NSString *category4;
+@property (retain) NSString *zombifiedVenue;
 @property int zeds;
 @property int fellowSurvivors;
 @property int zedsKilled;
@@ -37,6 +45,7 @@
 @property bool isZombie;
 
 -(void)fetchMostRecent:(StatusViewController *)controller;
+- (void) processMostRecent:(StatusViewController *)controller result:(id)result;
 
 -(void)calcZombieTime:(StatusViewController *)controller withVenue:(NSString *)venueID withCreatedAt:(NSDecimalNumber *)createdAt;
 -(void)reset;
@@ -44,6 +53,8 @@
 -(void)save;
 -(void)getZombieStatus:(StatusViewController *)controller;
 -(void)recalcTTL:(StatusViewController *)controller;
+-(void)checkin:(StatusViewController *)controller;
+-(void)checkinHuman:(StatusViewController *)controller;
 -(void)checkinZombie:(StatusViewController *)controller;
 
 @end
