@@ -156,6 +156,8 @@ const int infoButtonTag = 1;
 }
 
 - (void)refreshStatusView {
+  NSLog(@"status description:\n%@", [status description]);
+  
   // First hide everything:
   ZombieView.hidden = YES;
   AliveView.hidden = YES;
