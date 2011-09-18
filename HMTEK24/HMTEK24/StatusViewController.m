@@ -160,6 +160,13 @@ const int infoButtonTag = 1;
   ZombieView.hidden = YES;
   AliveView.hidden = YES;
   
+  /*NSData* imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:imageURL]];
+  
+  UIImage* image = [[UIImage alloc] initWithData:imageData];
+  [photoImage setImage:image];
+  [imageData release];
+  [image release];*/
+  
   if(status.isZombie) {
     ZombieView.hidden = NO;
     
