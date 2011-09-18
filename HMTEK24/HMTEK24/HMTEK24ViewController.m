@@ -8,6 +8,7 @@
 
 #import "HMTEK24ViewController.h"
 #import "FoursquareWebLogin.h"
+#import "PlayerStatus.h"
 
 @interface HMTEK24ViewController()
 - (void) onFoursquareAuthenticationComplete;

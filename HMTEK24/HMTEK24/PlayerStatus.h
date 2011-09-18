@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+#import "StatusViewController.h"
+
 @interface PlayerStatus : NSObject {
-  BOOL isZombie;
+  NSDecimalNumber *zombieTime;
+  bool isZombie;
 }
 
-@property BOOL isZombie;
+@property NSDecimalNumber *zombieTime;
+@property bool isZombie;
+
+-(void)calculateZombieTime:(StatusViewController *)controller;
+-(void)reset;
+-(void)getZombieStatus:(StatusViewController *)controller;
 
 @end
