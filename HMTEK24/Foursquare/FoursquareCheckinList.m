@@ -15,10 +15,14 @@
 
 @end
 
+static NSMutableDictionary *categoryIcons = nil;
 
 @implementation FoursquareCheckinList
 
 - (id)initWithList:(NSArray *)list shoutList:(NSArray *)shouts {
+  if (categoryIcons == nil) {
+    categoryIcons = [[NSMutableDictionary alloc] init];
+  }
 	if ((self = [super initWithList:list])) {
     shoutList = [shouts retain];
 	}
@@ -38,6 +42,15 @@
 		for (NSDictionary *item in items) {
       NSString *buttonTitle = [item valueForKey:@"name"];
 			GlossyButton *button = [[GlossyButton alloc] initWithFrame:base];
+      NSArray *catArray = (NSArray *)[item valueForKey:@"categories"];
+      if ([catArray count] > 0) {
+        NSString *url = (NSString *)[(NSDictionary *)[catArray objectAtIndex:0] valueForKey:@"icon"];
+        if ([categoryIcons objectForKey:url] == nil) {
+          [categoryIcons setObject:[[UIImage alloc] initWithData:[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:url]]] forKey:url];
+        }
+        UIImage *buttonImage = (UIImage *)[categoryIcons objectForKey:url];
+        [button setImage:buttonImage forState:UIControlStateNormal];
+      }
       button.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
       
       CGSize textSize = { button.frame.size.width, 1000.0f };		// width and height of button
