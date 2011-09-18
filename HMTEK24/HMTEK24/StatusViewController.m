@@ -17,12 +17,15 @@
 
 @implementation StatusViewController
 
+@synthesize status;
+
 const int infoButtonTag = 1;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+      self.status = [[[PlayerStatus alloc] init] autorelease];
         // Custom initialization
     }
     return self;
@@ -58,7 +61,7 @@ const int infoButtonTag = 1;
                            infoButton.frame.size.width + 40,
                            infoButton.frame.size.height + 40);
   [infoButton setFrame:rect];
-  [infoButton release];
+ // [infoButton release];
   
   CGRect tempFrame;
   int startingY = self.view.frame.size.height * 0.05;
@@ -81,10 +84,8 @@ const int infoButtonTag = 1;
 //  tempFrame = timeRemainingLabel1.frame;
 //  tempFrame.origin.y = startingY + lineHeight *2;
 //  timeRemainingLabel3.frame = tempFrame;
-  
-  PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
-  status.isZombie = NO;
-  [self refreshStatusView:status];
+
+  [self refreshStatusView];
 }
 
 -(UILabel*) newLabel: (BOOL) addToZombieView {
@@ -135,8 +136,6 @@ const int infoButtonTag = 1;
 }
 
 - (void)applicationDidBecomeActive {
-  PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
-  [status getZombieStatus:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -152,7 +151,7 @@ const int infoButtonTag = 1;
   }
 }
 
-- (void)refreshStatusView: (PlayerStatus*) status {
+- (void)refreshStatusView {
   // First hide everything:
   ZombieView.hidden = YES;
   AliveView.hidden = YES;
@@ -183,13 +182,11 @@ const int infoButtonTag = 1;
 }
 
 - (IBAction)onCheckinAlive:(id)sender {
-  PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
   status.isZombie = YES;
-  [self refreshStatusView:status];
+  [self refreshStatusView];
 }
 
 - (IBAction)onCheckinZombie:(id)sender {
-  PlayerStatus* status = [[[PlayerStatus alloc] init] autorelease];
   [status checkinZombie:self];
 }
 

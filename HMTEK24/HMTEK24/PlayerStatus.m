@@ -116,7 +116,8 @@
       zombieTime = [[createdAt decimalNumberByAdding:remain] longValue];
       lastCheckinTime = [createdAt longValue];
       
-      [self save];
+      [self performSelectorOnMainThread:@selector(save) withObject:nil waitUntilDone:YES];
+      //[self save];
       [self recalcTTL:controller];
     }
   }];
@@ -148,7 +149,7 @@
   }
   
   if (controller != nil) {
-    [controller refreshStatusView:self];
+    [controller refreshStatusView];
   }
 }
 
