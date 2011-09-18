@@ -264,8 +264,19 @@ const int infoButtonTag = 1;
 //      [image release];
 //    }
 
-    zombieReasonTextView.text = [NSString stringWithFormat:@"%@ has been overcome by the horde at %@!", status.playerName, status.zombifiedVenue];
-    
+    NSString* firstPart;
+    if(status.playerName == nil) {
+      firstPart = [NSString stringWithFormat:@"You have been overcome by the horde"];
+    }else {
+      firstPart = [NSString stringWithFormat:@"%@ has been overcome by the horde", status.playerName];
+    }
+    NSString* lastPart;
+    if(status.zombifiedVenue == nil) {
+      lastPart = [NSString stringWithFormat:@"!"];
+    } else {
+      lastPart = [NSString stringWithFormat:@" at %@!", status.zombifiedVenue];
+    }
+    zombieReasonTextView.text = [NSString stringWithFormat:@"%@%@", firstPart, lastPart];    
     
   } else {
     float zombification = ((status.lastCheckinTime - status.zombieTime) / (18* 3600));
