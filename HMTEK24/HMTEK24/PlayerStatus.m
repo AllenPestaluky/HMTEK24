@@ -128,7 +128,7 @@
   self.lastVenueName = [(NSDictionary*)[checkin valueForKey:@"venue"] valueForKey:@"name"];
   
   if (lastCheckinTime == [createdAt longValue]) {
-    [self recalcTTL:controller];
+    [self recalcTTL:controller fastRefresh: NO];
   } else {
     [self calcZombieTime:controller withVenue:venueID withCreatedAt:createdAt];
   }
@@ -176,7 +176,7 @@
       
       [self performSelectorOnMainThread:@selector(save) withObject:nil waitUntilDone:YES];
       //[self save];
-      [self recalcTTL:controller];
+      [self recalcTTL:controller fastRefresh: NO];
     }
   }];
 }
@@ -187,12 +187,11 @@
       [self fetchMostRecent:controller];
     }
   } else {
-    [self recalcTTL:controller];
+    [self recalcTTL:controller fastRefresh: NO];
   }
 }
 
-// TODO: call this with timer and make sure I'm not downloading images in refreshStatusView
-- (void) recalcTTL:(StatusViewController *)controller {
+- (void) recalcTTL:(StatusViewController *)controller fastRefresh: (BOOL) fastRefresh {
   long now = [[NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] decimalValue]] longValue];
   
   int diff = zombieTime - now;
@@ -219,12 +218,12 @@
   }
   
   if (controller != nil) {
-    [controller refreshStatusView];
+    [controller refreshStatusView: fastRefresh];
   }
 }
 
 - (void) checkin:(StatusViewController *)controller {
-  [self recalcTTL:nil];
+  [self recalcTTL:nil fastRefresh: NO];
   
   if (isZombie) {
     [self checkinZombie:controller];

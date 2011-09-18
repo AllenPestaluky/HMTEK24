@@ -59,7 +59,7 @@
 - (void) loadWithViewController: (StatusViewController*) viewController;
 -(void)save;
 -(void)getZombieStatus:(StatusViewController *)controller;
--(void)recalcTTL:(StatusViewController *)controller;
+- (void) recalcTTL:(StatusViewController *)controller fastRefresh: (BOOL) fastRefresh;
 -(void)checkin:(StatusViewController *)controller;
 -(void)checkinHuman:(StatusViewController *)controller;
 -(void)checkinZombie:(StatusViewController *)controller;
