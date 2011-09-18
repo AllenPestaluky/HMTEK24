@@ -116,10 +116,6 @@ const int infoButtonTag = 1;
   ZombieView = nil;
   [AliveView release];
   AliveView = nil;
-  [zombieReasonTextView release];
-  zombieReasonTextView = nil;
-  [venueStatsTextView release];
-  venueStatsTextView = nil;
   [venueType1Image release];
   venueType1Image = nil;
   [venueType2Image release];
@@ -134,6 +130,10 @@ const int infoButtonTag = 1;
   photoImage = nil;
   [photoOverlayImage release];
   photoOverlayImage = nil;
+  [zombieReasonTextView release];
+  zombieReasonTextView = nil;
+  [venueStatusTextView release];
+  venueStatusTextView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -188,7 +188,7 @@ const int infoButtonTag = 1;
     timeRemainingLabel1.text = [NSString stringWithFormat: @"%i:%i:%i", status.hours, status.minutes, status.seconds];
     [self sizeLabel: timeRemainingLabel1];
     
-    venueStatsTextView.text = [NSString stringWithFormat: @"%@ STATISTICS:\n\nZombies killed: %i/%i\nOther survivors: %i", status.lastVenueName, status.zedsKilled, status.zeds, status.fellowSurvivors];
+    venueStatusTextView.text = [NSString stringWithFormat: @"%@ STATISTICS:\n\nZombies killed: %i/%i\nOther survivors: %i", status.lastVenueName, status.zedsKilled, status.zeds, status.fellowSurvivors];
     
     AliveView.hidden = NO;
   }
@@ -216,8 +216,6 @@ const int infoButtonTag = 1;
   //[timeRemainingLabel3 release];
   [ZombieView release];
   [AliveView release];
-  [zombieReasonTextView release];
-  [venueStatsTextView release];
   [venueType1Image release];
   [venueType2Image release];
   [venueType3Image release];
@@ -225,6 +223,8 @@ const int infoButtonTag = 1;
   [venueType5Image release];
   [photoImage release];
   [photoOverlayImage release];
+  [zombieReasonTextView release];
+  [venueStatusTextView release];
   [super dealloc];
 }
 @end
