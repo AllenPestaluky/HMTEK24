@@ -49,12 +49,14 @@
 @property int seconds;
 @property bool isZombie;
 
+- (id)initWithStatusViewController: (StatusViewController*) viewController;
+
 -(void)fetchMostRecent:(StatusViewController *)controller;
 - (void) processMostRecent:(StatusViewController *)controller checkin:(NSDictionary *)checkin;
 
 -(void)calcZombieTime:(StatusViewController *)controller withVenue:(NSString *)venueID withCreatedAt:(NSDecimalNumber *)createdAt;
 -(void)reset;
--(void)load;
+- (void) loadWithViewController: (StatusViewController*) viewController;
 -(void)save;
 -(void)getZombieStatus:(StatusViewController *)controller;
 -(void)recalcTTL:(StatusViewController *)controller;
