@@ -13,6 +13,7 @@
 @interface StatusViewController()
 -(void) sizeLabel: (UILabel*) label;
 -(UILabel*) newLabel: (BOOL) addToZombieView;
+- (UIImage*) newImageFromURL: (NSString*) url;
 @end
 
 @implementation StatusViewController
@@ -46,7 +47,7 @@ const int infoButtonTag = 1;
     [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   
-  UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+  /*UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
   infoButton.frame = CGRectMake(10, 10, 16, 16);
   infoButton.backgroundColor = [UIColor clearColor];
   [infoButton addTarget:self action:@selector(buttonPressed:) 
@@ -60,8 +61,7 @@ const int infoButtonTag = 1;
                            infoButton.frame.origin.y - 20,
                            infoButton.frame.size.width + 40,
                            infoButton.frame.size.height + 40);
-  [infoButton setFrame:rect];
- // [infoButton release];
+  [infoButton setFrame:rect];*/
   
   CGRect tempFrame;
   int startingY = self.view.frame.size.height * 0.05;
@@ -116,10 +116,6 @@ const int infoButtonTag = 1;
   ZombieView = nil;
   [AliveView release];
   AliveView = nil;
-  [zombieReasonTextView release];
-  zombieReasonTextView = nil;
-  [venueStatsTextView release];
-  venueStatsTextView = nil;
   [venueType1Image release];
   venueType1Image = nil;
   [venueType2Image release];
@@ -134,6 +130,10 @@ const int infoButtonTag = 1;
   photoImage = nil;
   [photoOverlayImage release];
   photoOverlayImage = nil;
+  [zombieReasonTextView release];
+  zombieReasonTextView = nil;
+  [venueStatusTextView release];
+  venueStatusTextView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -162,36 +162,66 @@ const int infoButtonTag = 1;
   ZombieView.hidden = YES;
   AliveView.hidden = YES;
   
-  /*NSData* imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:imageURL]];
-  
-  UIImage* image = [[UIImage alloc] initWithData:imageData];
+  // TODO: replace this with a real URL
+  UIImage* image = [self newImageFromURL: @"https://secure.gravatar.com/avatar/9d73f299f9c285733a1b880f48c7c653?s=140&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png"];
   [photoImage setImage:image];
-  [imageData release];
-  [image release];*/
+  [image release];
   
   if(status.isZombie) {
     ZombieView.hidden = NO;
     
-    // TODO: make a zombieVenueTypeCount or something
-    //venueType1Image.hidden = (status.zombieVenueTypeCount > 0) ? NO : YES;
+    // TODO: use some type of status.zombieVenueTypeCount property
+    int venueCount = 3;
+    venueType1Image.hidden = (venueCount > 0) ? NO : YES;
     if(!venueType1Image.hidden) {
-      // TODO: set the image
-      //venueType1Image.image = (the 64x64 url of the venu icon)
+      UIImage* image = [self newImageFromURL: status.category1];
+      venueType1Image.image = image;
+      [image release];
     }
-    // TODO: do this for the rest of the images
+    venueType2Image.hidden = (venueCount > 0) ? NO : YES;
+    if(!venueType2Image.hidden) {
+      UIImage* image = [self newImageFromURL: status.category2];
+      venueType2Image.image = image;
+      [image release];
+    }
+    venueType3Image.hidden = (venueCount > 0) ? NO : YES;
+    if(!venueType3Image.hidden) {
+      UIImage* image = [self newImageFromURL: status.category3];
+      venueType3Image.image = image;
+      [image release];
+    }
+    venueType4Image.hidden = (venueCount > 0) ? NO : YES;
+    if(!venueType4Image.hidden) {
+      UIImage* image = [self newImageFromURL: status.category4];
+      venueType4Image.image = image;
+      [image release];
+    }
+    venueType5Image.hidden = YES; // this one doesn't ever exist I guess
+//    if(!venueType5Image.hidden) {
+//      UIImage* image = [self newImageFromURL: status.category5];
+//      venueType5Image.image = image;
+//      [image release];
+//    }
+
+    zombieReasonTextView.text = [NSString stringWithFormat:@"%@ has been overcome by the horde at %@!", @"Player Name", @"Venue Name"];
     
-    // TODO: give the reason that they became a zombie:
-    //zombieReasonTextView.text =
     
   } else {
     
     timeRemainingLabel1.text = [NSString stringWithFormat: @"%i:%i:%i", status.hours, status.minutes, status.seconds];
     [self sizeLabel: timeRemainingLabel1];
     
-    venueStatsTextView.text = [NSString stringWithFormat: @"%@ STATISTICS:\n\nZombies killed: %i/%i\nOther survivors: %i", status.lastVenueName, status.zedsKilled, status.zeds, status.fellowSurvivors];
+    venueStatusTextView.text = [NSString stringWithFormat: @"%@ STATISTICS:\n\nZombies killed: %i/%i\nOther survivors: %i", status.lastVenueName, status.zedsKilled, status.zeds, status.fellowSurvivors];
     
     AliveView.hidden = NO;
   }
+}
+
+- (UIImage*) newImageFromURL: (NSString*) url {
+  NSData* imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:url]];
+  UIImage* image = [[UIImage alloc] initWithData:imageData];
+  [imageData release];
+  return image;
 }
 
 - (IBAction)onCheckinAlive:(id)sender {
@@ -216,8 +246,6 @@ const int infoButtonTag = 1;
   //[timeRemainingLabel3 release];
   [ZombieView release];
   [AliveView release];
-  [zombieReasonTextView release];
-  [venueStatsTextView release];
   [venueType1Image release];
   [venueType2Image release];
   [venueType3Image release];
@@ -225,6 +253,8 @@ const int infoButtonTag = 1;
   [venueType5Image release];
   [photoImage release];
   [photoOverlayImage release];
+  [zombieReasonTextView release];
+  [venueStatusTextView release];
   [super dealloc];
 }
 @end

@@ -17,13 +17,12 @@
   UILabel* timeRemainingLabel1;
   UILabel* timeRemainingLabel2;
   //UILabel* timeRemainingLabel3;
-  
-  IBOutlet UITextView *venueStatsTextView;
-  IBOutlet UITextView *zombieReasonTextView;
-  
+    
   IBOutlet UIImageView *photoImage;
   IBOutlet UIImageView *photoOverlayImage;
   
+  IBOutlet UITextView *venueStatusTextView;
+  IBOutlet UITextView *zombieReasonTextView;
   IBOutlet UIImageView *venueType1Image;
   IBOutlet UIImageView *venueType2Image;
   IBOutlet UIImageView *venueType3Image;

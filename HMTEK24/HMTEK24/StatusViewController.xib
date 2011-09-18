@@ -54,7 +54,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrameSize">{320, 460}</string>
 								<reference key="NSSuperview" ref="918814792"/>
-								<reference key="NSNextKeyView" ref="167052472"/>
+								<reference key="NSNextKeyView" ref="661503432"/>
 								<string key="NSReuseIdentifierKey">_NS:541</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -68,6 +68,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{64, 380}, {192, 60}}</string>
 								<reference key="NSSuperview" ref="918814792"/>
+								<reference key="NSNextKeyView" ref="685871192"/>
 								<string key="NSReuseIdentifierKey">_NS:222</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<int key="IBUIContentMode">8</int>
@@ -101,12 +102,12 @@
 									<string key="NSResourceName">ButtonAlive_Up.png</string>
 								</object>
 							</object>
-							<object class="IBUITextView" id="643362157">
+							<object class="IBUITextView" id="661503432">
 								<reference key="NSNextResponder" ref="918814792"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{49, 244}, {222, 128}}</string>
+								<string key="NSFrame">{{49, 166}, {222, 128}}</string>
 								<reference key="NSSuperview" ref="918814792"/>
-								<reference key="NSNextKeyView" ref="897965555"/>
+								<reference key="NSNextKeyView" ref="167052472"/>
 								<string key="NSReuseIdentifierKey">_NS:613</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -118,7 +119,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<bool key="IBUIScrollEnabled">NO</bool>
 								<bool key="IBUIEditable">NO</bool>
-								<string key="IBUIText">Zombies killed: </string>
+								<string key="IBUIText">Venue Status</string>
 								<object class="NSColor" key="IBUITextColor" id="383977951">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MAA</bytes>
@@ -138,7 +139,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{96, 125}, {128, 128}}</string>
 								<reference key="NSSuperview" ref="918814792"/>
-								<reference key="NSNextKeyView" ref="643362157"/>
+								<reference key="NSNextKeyView" ref="897965555"/>
 								<string key="NSReuseIdentifierKey">_NS:541</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -182,7 +183,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrameSize">{320, 460}</string>
 								<reference key="NSSuperview" ref="685871192"/>
-								<reference key="NSNextKeyView" ref="661503432"/>
+								<reference key="NSNextKeyView" ref="643362157"/>
 								<string key="NSReuseIdentifierKey">_NS:541</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -196,7 +197,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{64, 380}, {192, 60}}</string>
 								<reference key="NSSuperview" ref="685871192"/>
-								<reference key="NSNextKeyView" ref="918814792"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:222</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<int key="IBUIContentMode">8</int>
@@ -220,10 +221,10 @@
 									<string key="NSResourceName">ButtonZombie_Up.png</string>
 								</object>
 							</object>
-							<object class="IBUITextView" id="661503432">
+							<object class="IBUITextView" id="643362157">
 								<reference key="NSNextResponder" ref="685871192"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{49, 187}, {222, 128}}</string>
+								<string key="NSFrame">{{49, 166}, {222, 128}}</string>
 								<reference key="NSSuperview" ref="685871192"/>
 								<reference key="NSNextKeyView" ref="327966167"/>
 								<string key="NSReuseIdentifierKey">_NS:613</string>
@@ -237,7 +238,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<bool key="IBUIScrollEnabled">NO</bool>
 								<bool key="IBUIEditable">NO</bool>
-								<string key="IBUIText">You have not checked in enough and have became a foursquare zombie!</string>
+								<string key="IBUIText">Zombie Reason</string>
 								<reference key="IBUITextColor" ref="383977951"/>
 								<reference key="IBUIFont" ref="54413312"/>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -318,7 +319,7 @@
 				</object>
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSNextKeyView" ref="685871192"/>
+				<reference key="NSNextKeyView" ref="918814792"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MC4yNjIwNzk2NTM1IDAuMTc1NDIwMzA1MSAwLjEyMTQ1NDA5MzIAA</bytes>
@@ -371,22 +372,6 @@
 						<reference key="destination" ref="918814792"/>
 					</object>
 					<int key="connectionID">20</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">zombieReasonTextView</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="643362157"/>
-					</object>
-					<int key="connectionID">28</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">venueStatsTextView</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="661503432"/>
-					</object>
-					<int key="connectionID">30</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -444,6 +429,22 @@
 					</object>
 					<int key="connectionID">44</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">zombieReasonTextView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="643362157"/>
+					</object>
+					<int key="connectionID">47</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">venueStatusTextView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="661503432"/>
+					</object>
+					<int key="connectionID">48</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -459,8 +460,8 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="685871192"/>
 							<reference ref="918814792"/>
+							<reference ref="685871192"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -482,9 +483,9 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="879178497"/>
 							<reference ref="211269886"/>
-							<reference ref="643362157"/>
 							<reference ref="897965555"/>
 							<reference ref="167052472"/>
+							<reference ref="661503432"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">AliveView</string>
@@ -502,24 +503,18 @@
 						<string key="objectName">CheckinButtonAlive</string>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">25</int>
-						<reference key="object" ref="643362157"/>
-						<reference key="parent" ref="918814792"/>
-						<string key="objectName">ZombieReason</string>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">18</int>
 						<reference key="object" ref="685871192"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="601836884"/>
 							<reference ref="426984859"/>
-							<reference ref="661503432"/>
 							<reference ref="327966167"/>
 							<reference ref="193474764"/>
 							<reference ref="366106679"/>
 							<reference ref="771382793"/>
 							<reference ref="1019375715"/>
+							<reference ref="643362157"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">ZombieView</string>
@@ -535,12 +530,6 @@
 						<reference key="object" ref="426984859"/>
 						<reference key="parent" ref="685871192"/>
 						<string key="objectName">ZombieBack</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">27</int>
-						<reference key="object" ref="661503432"/>
-						<reference key="parent" ref="685871192"/>
-						<string key="objectName">VenueStats</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">31</int>
@@ -583,6 +572,18 @@
 						<reference key="object" ref="167052472"/>
 						<reference key="parent" ref="918814792"/>
 						<string key="objectName">PhotoImage</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">27</int>
+						<reference key="object" ref="661503432"/>
+						<reference key="parent" ref="918814792"/>
+						<string key="objectName">VenueStats</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">25</int>
+						<reference key="object" ref="643362157"/>
+						<reference key="parent" ref="685871192"/>
+						<string key="objectName">ZombieReason</string>
 					</object>
 				</object>
 			</object>
@@ -651,7 +652,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">44</int>
+			<int key="maxID">48</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
