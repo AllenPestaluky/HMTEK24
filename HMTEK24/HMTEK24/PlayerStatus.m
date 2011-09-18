@@ -33,12 +33,12 @@
 @synthesize minutes;
 @synthesize seconds;
 
-- (id)init
+- (id)initWithStatusViewController: (StatusViewController*) viewController
 {
     self = [super init];
     if (self) {
         // Initialization code here.
-      [self load];
+      [self loadWithViewController: viewController];
     }
     
     return self;
@@ -58,7 +58,7 @@
   self.category4 = nil;
 }
 
-- (void) load {
+- (void) loadWithViewController: (StatusViewController*) viewController {
   [self reset];
   NSUserDefaults *usDef = [NSUserDefaults standardUserDefaults];
   if ([usDef objectForKey:@"player_name"] != nil) {
@@ -80,7 +80,7 @@
     self.category4 = (NSString *)[usDef objectForKey:@"zombie_category4"];    
   }
   if (![Foursquare2 isNeedToAuthorize]) {
-    [self fetchMostRecent:nil];
+    [self fetchMostRecent:viewController];
   }
 }
 
@@ -191,6 +191,7 @@
   }
 }
 
+// TODO: call this with timer and make sure I'm not downloading images in refreshStatusView
 - (void) recalcTTL:(StatusViewController *)controller {
   long now = [[NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] decimalValue]] longValue];
   

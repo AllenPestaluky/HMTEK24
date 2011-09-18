@@ -37,6 +37,7 @@
 @property (nonatomic, retain) PlayerStatus *status;
 
 - (void)applicationDidBecomeActive;
+-(void) tick;
 - (void)refreshStatusView;
 - (IBAction)onCheckinAlive:(id)sender;
 - (IBAction)onCheckinZombie:(id)sender;

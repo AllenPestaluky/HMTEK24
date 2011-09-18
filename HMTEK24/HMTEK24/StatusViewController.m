@@ -9,6 +9,7 @@
 #import "StatusViewController.h"
 #import "PlayerStatus.h"
 #import "FontLabel.h"
+#import "Foursquare2.h"
 
 @interface StatusViewController()
 -(void) sizeLabel: (UILabel*) label;
@@ -26,7 +27,6 @@ const int infoButtonTag = 1;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-      self.status = [[[PlayerStatus alloc] init] autorelease];
         // Custom initialization
     }
     return self;
@@ -80,6 +80,9 @@ const int infoButtonTag = 1;
   timeRemainingLabel2.text = [NSString stringWithFormat: @"remain"];
   [self sizeLabel: timeRemainingLabel2];
   
+  ZombieView.hidden = YES;
+  AliveView.hidden = YES;
+  
 //  timeRemainingLabel3 = [self newLabel:NO];
 //  tempFrame = timeRemainingLabel1.frame;
 //  tempFrame.origin.y = startingY + lineHeight *2;
@@ -87,7 +90,13 @@ const int infoButtonTag = 1;
   
   defaultVenuIcon = [[UIImage alloc] initWithContentsOfFile:@"Resources/default_venue_64.png"];
 
-  [status getZombieStatus:self];
+  //[status getZombieStatus:self]; // cause this will never be accurate anyway
+  
+  [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+}
+
+-(void) tick {
+  [status recalcTTL:self];
 }
 
 -(UILabel*) newLabel: (BOOL) addToZombieView {
@@ -147,6 +156,12 @@ const int infoButtonTag = 1;
 - (void)applicationDidBecomeActive {
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+  if(self.status == nil) {
+    self.status = [[[PlayerStatus alloc] initWithStatusViewController:self] autorelease];
+  }
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -168,7 +183,7 @@ const int infoButtonTag = 1;
   AliveView.hidden = YES;
   
   // TODO: replace this with a real URL
-  UIImage* image = [self newImageFromURL: @"https://secure.gravatar.com/avatar/9d73f299f9c285733a1b880f48c7c653?s=140&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png"];
+  UIImage* image = [self newImageFromURL: status.playerIcon];
   [photoImage setImage:image];
   [image release];
   
@@ -224,7 +239,7 @@ const int infoButtonTag = 1;
 //      [image release];
 //    }
 
-    zombieReasonTextView.text = [NSString stringWithFormat:@"%@ has been overcome by the horde at %@!", @"Player Name", status.zombifiedVenue];
+    zombieReasonTextView.text = [NSString stringWithFormat:@"%@ has been overcome by the horde at %@!", status.playerName, status.zombifiedVenue];
     
     
   } else {
