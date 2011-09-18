@@ -21,6 +21,9 @@
   IBOutlet UITextView *venueStatsTextView;
   IBOutlet UITextView *zombieReasonTextView;
   
+  IBOutlet UIImageView *photoImage;
+  IBOutlet UIImageView *photoOverlayImage;
+  
   IBOutlet UIImageView *venueType1Image;
   IBOutlet UIImageView *venueType2Image;
   IBOutlet UIImageView *venueType3Image;

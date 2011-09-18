@@ -130,6 +130,10 @@ const int infoButtonTag = 1;
   venueType4Image = nil;
   [venueType5Image release];
   venueType5Image = nil;
+  [photoImage release];
+  photoImage = nil;
+  [photoOverlayImage release];
+  photoOverlayImage = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -152,9 +156,18 @@ const int infoButtonTag = 1;
 }
 
 - (void)refreshStatusView {
+  NSLog(@"status description:\n%@", [status description]);
+  
   // First hide everything:
   ZombieView.hidden = YES;
   AliveView.hidden = YES;
+  
+  /*NSData* imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:imageURL]];
+  
+  UIImage* image = [[UIImage alloc] initWithData:imageData];
+  [photoImage setImage:image];
+  [imageData release];
+  [image release];*/
   
   if(status.isZombie) {
     ZombieView.hidden = NO;
@@ -210,6 +223,8 @@ const int infoButtonTag = 1;
   [venueType3Image release];
   [venueType4Image release];
   [venueType5Image release];
+  [photoImage release];
+  [photoOverlayImage release];
   [super dealloc];
 }
 @end
