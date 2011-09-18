@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>FOURSQUARE_GAME_URL</key>
-	<string>http://magmic.com/</string>
+	<string>http://magmic.com/checkinordie</string>
 	<key>FOURSQUARE_HASH_TAG</key>
 	<string>#CheckinOrDIE</string>
 	<key>FOURSQUARE_OAUTH_KEY</key>
