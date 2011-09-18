@@ -29,9 +29,14 @@
   IBOutlet UIImageView *venueType3Image;
   IBOutlet UIImageView *venueType4Image;
   IBOutlet UIImageView *venueType5Image;
+  
+  PlayerStatus *status;
 }
+
+@property (nonatomic, retain) PlayerStatus *status;
+
 - (void)applicationDidBecomeActive;
-- (void)refreshStatusView: (PlayerStatus*) status;
+- (void)refreshStatusView;
 - (IBAction)onCheckinAlive:(id)sender;
 - (IBAction)onCheckinZombie:(id)sender;
 

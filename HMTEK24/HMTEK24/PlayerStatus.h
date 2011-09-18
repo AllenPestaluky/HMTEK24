@@ -12,19 +12,23 @@
 
 @interface PlayerStatus : NSObject {
   long zombieTime;
+  NSArray *categories;
   int hours;
   int minutes;
   bool isZombie;
-  NSArray *categories;
 }
 
 @property long zombieTime;
 @property long lastCheckinTime;
+@property NSArray *categories;
+@property int zeds;
+@property int fellowSurvivors;
+@property int zedsKilled;
+
 @property int hours;
 @property int minutes;
 @property int seconds;
 @property bool isZombie;
-@property NSArray *categories;
 
 -(void)fetchMostRecent:(StatusViewController *)controller;
 
