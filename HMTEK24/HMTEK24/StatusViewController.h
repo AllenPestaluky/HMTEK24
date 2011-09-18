@@ -38,7 +38,7 @@
 
 - (void)applicationDidBecomeActive;
 -(void) tick;
-- (void)refreshStatusView;
+- (void)refreshStatusView: (BOOL) fastRefresh;
 - (IBAction)onCheckinAlive:(id)sender;
 - (IBAction)onCheckinZombie:(id)sender;
 

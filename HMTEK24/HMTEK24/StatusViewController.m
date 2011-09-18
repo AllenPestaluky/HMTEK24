@@ -96,7 +96,7 @@ const int infoButtonTag = 1;
 }
 
 -(void) tick {
-  [status recalcTTL:self];
+  [status recalcTTL:self fastRefresh: YES];
 }
 
 -(UILabel*) newLabel: (BOOL) addToZombieView {
@@ -175,64 +175,70 @@ const int infoButtonTag = 1;
   }
 }
 
-- (void)refreshStatusView {
-  NSLog(@"status description:\n%@", [status description]);
+- (void)refreshStatusView: (BOOL) fastRefresh {
+  if(!fastRefresh) {
+    NSLog(@"status description:\n%@", [status description]);
+  }
   
   // First hide everything:
   ZombieView.hidden = YES;
   AliveView.hidden = YES;
   
-  // TODO: replace this with a real URL
-  UIImage* image = [self newImageFromURL: status.playerIcon];
-  [photoImage setImage:image];
-  [image release];
+  if(!fastRefresh) {
+    UIImage* image = [self newImageFromURL: status.playerIcon];
+    [photoImage setImage:image];
+    [image release];
+  }
   
-  // TODO: change back to default image
+  
   if(status.isZombie) {
     ZombieView.hidden = NO;
     
     float dimAlphaValue = 0.25;
     venueType1Image.alpha = status.category1 == nil ? dimAlphaValue : 1.0;
-    if(status.category1 == nil) {
-      UIImage* image = [self newImageFromURL: status.category1];
-      if(image) {
-      venueType1Image.image = image;
-      }
-      [image release];
-    } else {
-      venueType1Image.image = defaultVenuIcon;
-    }
     venueType2Image.alpha = status.category2 == nil ? dimAlphaValue : 1.0;
-    if(status.category2 == nil) {
-      UIImage* image = [self newImageFromURL: status.category2];
-      if(image) {
-        venueType2Image.image = image;
-      }
-      [image release];
-    } else {
-      venueType2Image.image = defaultVenuIcon;
-    }
     venueType3Image.alpha = status.category3 == nil ? dimAlphaValue : 1.0;
-    if(status.category3 == nil) {
-      UIImage* image = [self newImageFromURL: status.category3];
-      if(image) {
-        venueType3Image.image = image;
-      }
-      [image release];
-    } else {
-      venueType3Image.image = defaultVenuIcon;
-    }
     venueType4Image.alpha = status.category4 == nil ? dimAlphaValue : 1.0;
-    if(status.category4 == nil) {
-      UIImage* image = [self newImageFromURL: status.category4];
-      if(image) {
-        venueType4Image.image = image;
-      }
-      [image release];
-    } else {
-      venueType4Image.image = defaultVenuIcon;
-    }
     venueType5Image.alpha = dimAlphaValue; // this one doesn't ever exist I guess
+    
+    if(!fastRefresh) {
+      if(status.category1 == nil) {
+        UIImage* image = [self newImageFromURL: status.category1];
+        if(image) {
+        venueType1Image.image = image;
+        }
+        [image release];
+      } else {
+        venueType1Image.image = defaultVenuIcon;
+      }
+      if(status.category2 == nil) {
+        UIImage* image = [self newImageFromURL: status.category2];
+        if(image) {
+          venueType2Image.image = image;
+        }
+        [image release];
+      } else {
+        venueType2Image.image = defaultVenuIcon;
+      }
+      if(status.category3 == nil) {
+        UIImage* image = [self newImageFromURL: status.category3];
+        if(image) {
+          venueType3Image.image = image;
+        }
+        [image release];
+      } else {
+        venueType3Image.image = defaultVenuIcon;
+      }
+      if(status.category4 == nil) {
+        UIImage* image = [self newImageFromURL: status.category4];
+        if(image) {
+          venueType4Image.image = image;
+        }
+        [image release];
+      } else {
+        venueType4Image.image = defaultVenuIcon;
+      }
+    }
 //    if(!venueType5Image.hidden) {
 //      UIImage* image = [self newImageFromURL: status.category5];
 //      venueType5Image.image = image;

@@ -48,6 +48,8 @@
 		D6A409C31425198900F05553 /* HMTEK24ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A409C11425198900F05553 /* HMTEK24ViewController.xib */; };
 		D6BDB9AA142698190052F92A /* Zombie.png in Resources */ = {isa = PBXBuildFile; fileRef = D6BDB9A9142698190052F92A /* Zombie.png */; };
 		D6BDB9AE142699890052F92A /* InfoBox_Newspaper.png in Resources */ = {isa = PBXBuildFile; fileRef = D6BDB9AC142699890052F92A /* InfoBox_Newspaper.png */; };
+		D6BDB9B11426A4750052F92A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D6BDB9B01426A4750052F92A /* Icon.png */; };
+		D6BDB9B31426A4A20052F92A /* Icon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = D6BDB9B21426A4A20052F92A /* Icon_57x57.png */; };
 		D6E369771425586700C1D7D1 /* Layer_1_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E369711425586700C1D7D1 /* Layer_1_Normal.png */; };
 		D6E369781425586700C1D7D1 /* Layer_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E369721425586700C1D7D1 /* Layer_2.png */; };
 		D6E369791425586700C1D7D1 /* Layer_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E369731425586700C1D7D1 /* Layer_3.png */; };
@@ -145,6 +147,8 @@
 		D6A409C21425198900F05553 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HMTEK24ViewController.xib; sourceTree = "<group>"; };
 		D6BDB9A9142698190052F92A /* Zombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zombie.png; sourceTree = "<group>"; };
 		D6BDB9AC142699890052F92A /* InfoBox_Newspaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoBox_Newspaper.png; sourceTree = "<group>"; };
+		D6BDB9B01426A4750052F92A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		D6BDB9B21426A4A20052F92A /* Icon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_57x57.png; sourceTree = "<group>"; };
 		D6E369711425586700C1D7D1 /* Layer_1_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Layer_1_Normal.png; sourceTree = "<group>"; };
 		D6E369721425586700C1D7D1 /* Layer_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Layer_2.png; sourceTree = "<group>"; };
 		D6E369731425586700C1D7D1 /* Layer_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Layer_3.png; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 		D6A4099A1425198900F05553 = {
 			isa = PBXGroup;
 			children = (
+				D6BDB9B21426A4A20052F92A /* Icon_57x57.png */,
+				D6BDB9B01426A4750052F92A /* Icon.png */,
 				5CF3C11F142556550009FE9F /* CoreLocation.framework */,
 				5CF3C0C5142556250009FE9F /* Foursquare */,
 				5CF3C0D4142556250009FE9F /* HRExt */,
@@ -489,6 +495,8 @@
 				D6ECFBD51426509500BEC017 /* default_venue_64.png in Resources */,
 				D6BDB9AA142698190052F92A /* Zombie.png in Resources */,
 				D6BDB9AE142699890052F92A /* InfoBox_Newspaper.png in Resources */,
+				D6BDB9B11426A4750052F92A /* Icon.png in Resources */,
+				D6BDB9B31426A4A20052F92A /* Icon_57x57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
