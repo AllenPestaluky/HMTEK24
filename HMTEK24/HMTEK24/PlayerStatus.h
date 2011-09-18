@@ -13,6 +13,7 @@
 @interface PlayerStatus : NSObject {
   long zombieTime;
   NSArray *categories;
+  NSString *lastVenueName;
   int zeds;
   int fellowSurvivors;
   int zedsKilled;
@@ -24,6 +25,7 @@
 
 @property long zombieTime;
 @property long lastCheckinTime;
+@property (retain) NSString *lastVenueName;
 @property NSArray *categories;
 @property int zeds;
 @property int fellowSurvivors;

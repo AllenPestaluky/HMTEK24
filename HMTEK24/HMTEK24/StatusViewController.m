@@ -186,7 +186,7 @@ const int infoButtonTag = 1;
     timeRemainingLabel1.text = [NSString stringWithFormat: @"%i:%i:%i", status.hours, status.minutes, status.seconds];
     [self sizeLabel: timeRemainingLabel1];
     
-    venueStatsTextView.text = [NSString stringWithFormat: @"VENU STATISTICS:\n\nZombies killed: %i\nOther survivors: %i", 24, 5];
+    venueStatsTextView.text = [NSString stringWithFormat: @"%@ STATISTICS:\n\nZombies killed: %i/%i\nOther survivors: %i", status.lastVenueName, status.zedsKilled, status.zeds, status.fellowSurvivors];
     
     AliveView.hidden = NO;
   }
