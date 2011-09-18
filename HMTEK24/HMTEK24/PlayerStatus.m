@@ -25,6 +25,9 @@
 @synthesize category3;
 @synthesize category4;
 
+@synthesize playerName;
+@synthesize playerIcon;
+
 @synthesize isZombie;
 @synthesize hours;
 @synthesize minutes;
@@ -58,6 +61,10 @@
 - (void) load {
   [self reset];
   NSUserDefaults *usDef = [NSUserDefaults standardUserDefaults];
+  if ([usDef objectForKey:@"player_name"] != nil) {
+    self.playerName = (NSString *)[usDef objectForKey:@"player_name"];
+    self.playerIcon = (NSString *)[usDef objectForKey:@"player_icon"];
+  }
 	if ([usDef integerForKey:@"last_checkin_time"] != 0) {
     lastCheckinTime = [usDef integerForKey:@"last_checkin_time"];
     self.lastVenueName = [usDef objectForKey:@"last_venue_name"];
@@ -76,6 +83,9 @@
 }
 
 - (void) save {
+  [[NSUserDefaults standardUserDefaults]setObject:playerName forKey:@"player_name"];
+  [[NSUserDefaults standardUserDefaults]setObject:playerIcon forKey:@"player_icon"];
+  
 	[[NSUserDefaults standardUserDefaults]setInteger:lastCheckinTime forKey:@"last_checkin_time"];
   [[NSUserDefaults standardUserDefaults]setObject:lastVenueName forKey:@"last_venue_name"];
 	[[NSUserDefaults standardUserDefaults]setInteger:zombieTime forKey:@"zombie_time"];
@@ -107,6 +117,9 @@
                                               [user valueForKey:@"checkins"]
                                               valueForKey:@"items"]
                                              objectAtIndex:0];
+  
+  self.playerName = [NSString stringWithFormat:@"%@ %@", (NSString *)[user valueForKey:@"firstName"], (NSString *)[user valueForKey:@"lastName"]];
+  self.playerIcon = [user valueForKey:@"icon"];
   
   NSDecimalNumber *createdAt = (NSDecimalNumber*)[mostRecent valueForKey:@"createdAt"];
   NSString *venueID = (NSString*)[(NSDictionary*)[mostRecent valueForKey:@"venue"] valueForKey:@"id"];

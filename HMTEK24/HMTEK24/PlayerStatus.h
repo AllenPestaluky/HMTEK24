@@ -22,8 +22,11 @@
   int fellowSurvivors;
   int zedsKilled;
   
+  NSString *playerName;
+  NSString *playerIcon;
   int hours;
   int minutes;
+  int seconds;
   bool isZombie;
 }
 
@@ -39,6 +42,8 @@
 @property int fellowSurvivors;
 @property int zedsKilled;
 
+@property (retain) NSString *playerName;
+@property (retain) NSString *playerIcon;
 @property int hours;
 @property int minutes;
 @property int seconds;
