@@ -103,27 +103,27 @@
 - (void) fetchMostRecent:(StatusViewController *)controller {
   [Foursquare2 getDetailForUser: @"self" callback:^(BOOL success, id result) {
     if (success) {
-      [self processMostRecent:controller result:result];
+      NSDictionary *user = (NSDictionary*)[(NSDictionary*)
+                                           [(NSDictionary*)result valueForKey:@"response"]
+                                           valueForKey:@"user"];
+      self.playerName = [NSString stringWithFormat:@"%@ %@", (NSString *)[user valueForKey:@"firstName"], (NSString *)[user valueForKey:@"lastName"]];
+      self.playerIcon = [user valueForKey:@"photo"];
+      
+      NSDictionary *mostRecent = (NSDictionary*)[(NSArray*)
+                                                 [(NSDictionary*)
+                                                  [user valueForKey:@"checkins"]
+                                                  valueForKey:@"items"]
+                                                 objectAtIndex:0];
+      
+      [self processMostRecent:controller checkin:mostRecent];
     }
   }];
 }
 
-- (void) processMostRecent:(StatusViewController *)controller result:(id)result {
-  NSDictionary *user = (NSDictionary*)[(NSDictionary*)
-                                       [(NSDictionary*)result valueForKey:@"response"]
-                                       valueForKey:@"user"];
-  NSDictionary *mostRecent = (NSDictionary*)[(NSArray*)
-                                             [(NSDictionary*)
-                                              [user valueForKey:@"checkins"]
-                                              valueForKey:@"items"]
-                                             objectAtIndex:0];
-  
-  self.playerName = [NSString stringWithFormat:@"%@ %@", (NSString *)[user valueForKey:@"firstName"], (NSString *)[user valueForKey:@"lastName"]];
-  self.playerIcon = [user valueForKey:@"icon"];
-  
-  NSDecimalNumber *createdAt = (NSDecimalNumber*)[mostRecent valueForKey:@"createdAt"];
-  NSString *venueID = (NSString*)[(NSDictionary*)[mostRecent valueForKey:@"venue"] valueForKey:@"id"];
-  self.lastVenueName = [(NSDictionary*)[mostRecent valueForKey:@"venue"] valueForKey:@"name"];
+- (void) processMostRecent:(StatusViewController *)controller checkin:(NSDictionary *)checkin {
+  NSDecimalNumber *createdAt = (NSDecimalNumber*)[checkin valueForKey:@"createdAt"];
+  NSString *venueID = (NSString*)[(NSDictionary*)[checkin valueForKey:@"venue"] valueForKey:@"id"];
+  self.lastVenueName = [(NSDictionary*)[checkin valueForKey:@"venue"] valueForKey:@"name"];
   
   if (lastCheckinTime == [createdAt longValue]) {
     [self recalcTTL:controller];
@@ -233,7 +233,7 @@
 - (void) checkinHuman:(StatusViewController *)controller {
   [FoursquareCheckinList showCheckin:controller shoutList:nil callback:^(BOOL success, id result) {
     if (success) {
-      [self processMostRecent:controller result:result];
+      [self processMostRecent:controller checkin:result];
     }
   }];
 }
@@ -267,7 +267,7 @@
         isZombie = false;
       }
 
-      [self recalcTTL:controller];
+      [self processMostRecent:controller checkin:result];
       
       NSLog(@"%@", categoryIcon);
     }

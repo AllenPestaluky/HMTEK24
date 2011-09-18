@@ -50,7 +50,7 @@
 @property bool isZombie;
 
 -(void)fetchMostRecent:(StatusViewController *)controller;
-- (void) processMostRecent:(StatusViewController *)controller result:(id)result;
+- (void) processMostRecent:(StatusViewController *)controller checkin:(NSDictionary *)checkin;
 
 -(void)calcZombieTime:(StatusViewController *)controller withVenue:(NSString *)venueID withCreatedAt:(NSDecimalNumber *)createdAt;
 -(void)reset;
