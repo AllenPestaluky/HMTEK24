@@ -73,12 +73,13 @@
     fellowSurvivors = [usDef integerForKey:@"fellow_survivors"];
     zedsKilled = [usDef integerForKey:@"zeds_killed"];
   }
-  if ([usDef objectForKey:@"zombie_categories"] != nil) {
+  if ([usDef objectForKey:@"zombie_category1"] != nil) {
     self.category1 = (NSString *)[usDef objectForKey:@"zombie_category1"];
     self.category2 = (NSString *)[usDef objectForKey:@"zombie_category2"];
     self.category3 = (NSString *)[usDef objectForKey:@"zombie_category3"];
     self.category4 = (NSString *)[usDef objectForKey:@"zombie_category4"];    
   }
+  zombieTime = 10;
   if (![Foursquare2 isNeedToAuthorize]) {
     [self fetchMostRecent:viewController];
   }
@@ -127,7 +128,7 @@
   NSString *venueID = (NSString*)[(NSDictionary*)[checkin valueForKey:@"venue"] valueForKey:@"id"];
   self.lastVenueName = [(NSDictionary*)[checkin valueForKey:@"venue"] valueForKey:@"name"];
   
-  if (lastCheckinTime == [createdAt longValue]) {
+  if (isZombie || lastCheckinTime == [createdAt longValue]) {
     [self recalcTTL:controller fastRefresh: NO];
   } else {
     [self calcZombieTime:controller withVenue:venueID withCreatedAt:createdAt];
@@ -167,11 +168,13 @@
         remain = [maxHoursMinusOne copy];
       }
       
-      zombieTime = [[createdAt decimalNumberByAdding:[remain decimalNumberByAdding:hour]] longValue];
-      lastCheckinTime = [createdAt longValue];
-      zeds = [zedsHere intValue];
-      fellowSurvivors = [survivors intValue];
-      zedsKilled = [kills intValue];
+      if (!isZombie) {
+        zombieTime = [[createdAt decimalNumberByAdding:[remain decimalNumberByAdding:hour]] longValue];
+        lastCheckinTime = [createdAt longValue];
+        zeds = [zedsHere intValue];
+        fellowSurvivors = [survivors intValue];
+        zedsKilled = [kills intValue];
+      }
       
       
       [self performSelectorOnMainThread:@selector(save) withObject:nil waitUntilDone:YES];

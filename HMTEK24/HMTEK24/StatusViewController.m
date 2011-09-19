@@ -223,16 +223,16 @@ const int infoButtonTag = 1;
     venueType5Image.alpha = dimAlphaValue; // this one doesn't ever exist I guess
     
     if(!fastRefresh) {
-      if(status.category1 == nil) {
+      if(status.category1 != nil) {
         UIImage* image = [self newImageFromURL: status.category1];
         if(image) {
-        venueType1Image.image = image;
+          venueType1Image.image = image;
         }
         [image release];
       } else {
         venueType1Image.image = defaultVenuIcon;
       }
-      if(status.category2 == nil) {
+      if(status.category2 != nil) {
         UIImage* image = [self newImageFromURL: status.category2];
         if(image) {
           venueType2Image.image = image;
@@ -241,7 +241,7 @@ const int infoButtonTag = 1;
       } else {
         venueType2Image.image = defaultVenuIcon;
       }
-      if(status.category3 == nil) {
+      if(status.category3 != nil) {
         UIImage* image = [self newImageFromURL: status.category3];
         if(image) {
           venueType3Image.image = image;
@@ -250,7 +250,7 @@ const int infoButtonTag = 1;
       } else {
         venueType3Image.image = defaultVenuIcon;
       }
-      if(status.category4 == nil) {
+      if(status.category4 != nil) {
         UIImage* image = [self newImageFromURL: status.category4];
         if(image) {
           venueType4Image.image = image;
